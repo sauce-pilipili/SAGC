@@ -1,0 +1,375 @@
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.club_register_subtitle {
+  font: normal normal normal 30px/79px Fira Sans;
+  line-height: 30px;
+}
+
+.club_register_title {
+  font: normal normal bold 66px/79px Fira Sans;
+  margin: 0;
+  margin-bottom: 70px;
+}
+
+.club_register_cards_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.club_register_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 430px;
+  height: 306px;
+  border: 1px solid #014833;
+  border-radius: 2px;
+  margin: 33px 0;
+}
+
+.club_register_card_title {
+  font: normal normal normal 25px/79px Fira Sans;
+}
+
+.club_register_price {
+  font: normal normal bold 60px/79px Fira Sans;
+}
+
+.club_register_documents_section {
+  margin-top: 60px;
+}
+
+.club_register_documents_card_container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.club_register_documents_card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 430px;
+  height: 185px;
+  border: 1px solid #014833;
+  border-radius: 2px;
+}
+
+.club_register_documents_card:hover {
+  border: 1px solid transparent;
+  color: white;
+  transition: 0.2s;
+}
+
+.club_register_documents_card:hover > .club_register_documents_download {
+  color: white;
+  transition: 0.2s;
+}
+
+.club_register_documents_card::before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent linear-gradient(115deg, #edf000 -30%, #009036 100%) 0%
+    0% no-repeat padding-box;
+  opacity: 0;
+  z-index: -1;
+}
+.club_register_documents_card:hover::before {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.club_register_documents_card:not(:hover)::before {
+  transition: 0.5s;
+}
+
+.club_register_documents_card_consommers {
+  font: normal normal normal 18px/79px Fira Sans;
+  line-height: 0;
+}
+
+.club_register_documents_card_title {
+  font: normal normal normal 25px/79px Fira Sans;
+}
+
+.club_register_documents_download {
+  font: normal normal bold 15px/79px Fira Sans;
+  line-height: 0;
+}
+
+.club_register_form_title {
+  font: normal normal bold 40px/79px Fira Sans;
+  margin: 100px 0 90px 0;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  gap: 57px;
+}
+
+.form_label {
+  font: normal normal bold 15px/14px Fira Sans;
+}
+
+.form_yourself_step_container {
+  display: flex;
+  gap: 122px;
+}
+
+.form_yourself_container {
+  position: relative;
+  width: 844px;
+  height: auto;
+  box-shadow: 10px 10px 30px #bfbfbf17;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+}
+
+.small-size {
+  width: 140px;
+  height: 20px;
+}
+
+.medium-size {
+  width: 200px;
+  height: 20px;
+}
+
+.normal-size {
+  width: 286px;
+  height: 20px;
+}
+
+.super-size {
+  width: 340px;
+  height: 20px;
+}
+
+#gender-select {
+  height: auto;
+  color: grey;
+}
+
+#disciplined-select {
+  height: auto;
+  color: grey;
+  width: 330px;
+}
+
+.step_container {
+  width: 430px;
+  height: 1207px;
+  box-shadow: 10px 10px 30px #bfbfbf17;
+  border: 1px solid #e2e2e2;
+}
+
+.step_form_number_background {
+  position: absolute;
+  left: -3%;
+  top: -2%;
+  display: block;
+  background: transparent linear-gradient(138deg, #edf000 -20%, #009036 100%) 0%
+    0% no-repeat padding-box;
+  border-radius: 50px;
+  width: 59px;
+  height: 59px;
+}
+
+.step_content_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.step_content_title {
+  font: normal normal bold 25px/79px Fira Sans;
+  margin: 15px 0;
+}
+
+.step_form_text {
+  font: normal normal bold 15px/79px Fira Sans;
+  line-height: 40px;
+}
+
+.step_number_text_arrow_container svg {
+  display: flex;
+  margin: auto;
+}
+
+.step_number_text_arrow_container {
+  position: relative;
+}
+
+.step_container_form_number_background {
+  position: relative;
+  display: flex;
+  margin: auto;
+  background: transparent linear-gradient(138deg, #edf000 -20%, #009036 100%) 0%
+    0% no-repeat padding-box;
+  border-radius: 50px;
+  width: 59px;
+  height: 59px;
+}
+
+.step_container_form_number {
+  position: absolute;
+  left: 38%;
+  top: -15%;
+  font: normal normal bold 30px/79px Fira Sans;
+  color: var(--second-text-color);
+}
+
+.step_form_number {
+  position: absolute;
+  left: 34%;
+  top: -17%;
+  font: normal normal bold 30px/79px Poppins;
+  color: var(--second-text-color);
+}
+
+.form_content_container {
+  width: 80%;
+  margin: 45px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+#rules-form-container {
+  gap: 58px;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form_input {
+  outline: none;
+  border: 1px solid #014833;
+  padding: 20px;
+}
+
+.form_input::placeholder {
+  opacity: 1;
+}
+
+.form_input:focus::placeholder {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.form_input:not(:focus)::placeholder {
+  transition: 0.5s;
+}
+
+.form_select {
+  outline: none;
+  border: 1px solid #014833;
+  padding: 20px;
+}
+
+.form_father_container {
+  position: relative;
+  width: 844px;
+  height: 446px;
+  box-shadow: 10px 10px 30px #bfbfbf17;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_mother_container {
+  position: relative;
+  width: 844px;
+  height: 446px;
+  box-shadow: 10px 10px 30px #bfbfbf17;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_rules_container {
+  position: relative;
+  width: 844px;
+  height: auto;
+  box-shadow: 10px 10px 30px #bfbfbf17;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_documents_container {
+  position: relative;
+  width: 844px;
+  height: auto;
+  box-shadow: 10px 10px 30px #bfbfbf17;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_location_container {
+  position: relative;
+  width: 844px;
+  height: auto;
+  box-shadow: 10px 10px 30px #bfbfbf17;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_rules_content_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_radio_text {
+  font: normal normal bold 15px/20px Fira Sans;
+  margin-bottom: 17px;
+}
+
+.input_radio_container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.input_location_container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.flex_form_items {
+  display: flex;
+  gap: 25px;
+}
+
+#pointure-container {
+  margin-top: 50px;
+}
+
+#pointure-select {
+  width: 207px;
+  height: auto;
+  color: grey;
+}
+
+#submit-form-btn {
+  margin: auto auto auto 0;
+}

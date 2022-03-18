@@ -1,0 +1,43 @@
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+main .button {
+  margin: auto;
+}
+
+.news_title {
+  font: normal normal bold 66px/79px Fira Sans;
+}
+
+.news_list {
+  display: flex;
+  gap: 37px;
+  padding: 0;
+}
+
+.news_list_item {
+  font: normal normal normal 15px/14px Fira Sans;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.news_list_item:nth-child(1) {
+  font-weight: bold;
+}
+
+.news_list_item:hover {
+  color: #00ac68;
+}
+
+.news_cards_section {
+  display: flex;
+  flex-direction: column;
+  gap: 87px;
+}
+
+.news_cards_container {
+  justify-content: space-between;
+}

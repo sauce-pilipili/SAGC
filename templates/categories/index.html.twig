@@ -1,0 +1,27 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Le blog{% endblock %}
+
+{% block body %}
+{{ include('_includes/Back/navigation.html.twig') }}
+    <section class="section-content">
+        <div class="content">
+            <div class="content-title">
+                <h1>Les articles</h1>
+                <form class="form-search" action="">
+                    <input class="form-search_input" type="text" name="" id="" placeholder="Rechercher un article">
+                    <input class="form-search_button" type="button" value="">
+                </form>
+            </div>
+            <div class="content-table">
+                <table class="content-table_article">
+                    <tbody id="body-list">
+                 {{ include('categories/_contentCategorie.html.twig') }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

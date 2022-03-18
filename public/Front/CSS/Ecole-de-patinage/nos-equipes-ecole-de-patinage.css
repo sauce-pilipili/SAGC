@@ -1,0 +1,52 @@
+#ice_skating_school_header {
+  height: 535px;
+}
+
+.header_img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.ice_skatting_school_subtitle {
+  font: normal normal normal 30px/79px Fira Sans;
+}
+
+.ice_skatting_school_title {
+  font: normal normal bold 66px/79px Fira Sans;
+  margin: 0 0 39px 0;
+}
+
+.ice_skatting_school_text_section {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.ice_skatting_school_btn_container {
+  margin-top: 40px;
+}
+
+.ice_skatting_school_pictures_title {
+  font: normal normal bold 40px/79px Fira Sans;
+}
+
+.ice_skatting_school_pictures_section {
+  width: 80%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.pictures_content_container {
+  margin-top: 91px;
+}
+
+.ice_skatting_school_pictures {
+  width: 1396px;
+  height: 509px;
+}
+
+.ice_skatting_school_pictures_text {
+  font: normal normal bold 30px/79px Fira Sans;
+  margin-bottom: 50px;
+}

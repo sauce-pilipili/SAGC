@@ -1,0 +1,89 @@
+.young_teams_text_pictures_section {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.young_teams_header_container {
+  width: 90%;
+  margin: auto;
+}
+
+.young_teams_top_content {
+  display: flex;
+  justify-content: center;
+  gap: 53px;
+  margin-top: 150px;
+}
+
+.young_teams_bottom_content {
+  display: flex;
+  justify-content: center;
+  gap: 53px;
+  margin-top: 150px;
+}
+
+.young_teams_picture_content_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.young_teams_picture {
+  width: 430px;
+  height: 267px;
+}
+
+.young_teams_results_section {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  z-index: -1;
+  height: 824px;
+  width: 1640px;
+  top: -60px;
+}
+
+.results_card {
+  position: relative;
+  width: 765px;
+  height: 426px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #8f8f8f1a;
+  padding: 34px 26px;
+  border: 1px solid #e2e2e2;
+}
+.results_card::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0%;
+  height: 10px;
+  background: transparent linear-gradient(91deg, #edf000 -50%, #009036 100%) 0%
+    0% no-repeat padding-box;
+  bottom: 0;
+  left: 0;
+}
+
+.results_card:hover::before {
+  width: 100%;
+  transition: 0.25s;
+}
+
+.results_card_text_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.results_card_title {
+  font: normal normal 800 50px/127px Fira Sans;
+  margin: 0;
+}

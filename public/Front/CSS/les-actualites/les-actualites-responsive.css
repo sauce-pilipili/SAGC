@@ -1,0 +1,309 @@
+@media screen and (max-width: 1440px) {
+  nav {
+    padding: 16.5px 10px;
+  }
+  main {
+    width: 95%;
+  }
+
+  .news_cards_container {
+    justify-content: start;
+    gap: 35px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  nav .button {
+    padding: 9px 33px;
+    align-items: center;
+    font: normal normal bold 14 px/18px Fira Sans;
+    margin: auto;
+  }
+
+  .logo_container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo {
+    width: 50%;
+  }
+
+  .left_side_list {
+    gap: 45px;
+  }
+
+  .left_side_list_item {
+    font-size: 12px;
+  }
+
+  .right_side_list {
+    padding-left: 180px;
+  }
+
+  .right_side_list_item {
+    font-size: 12px;
+  }
+
+  .news_cards_container {
+    flex-wrap: wrap;
+  }
+
+  .footer_top_list_title {
+    font-size: 18px;
+  }
+
+  .footer_top_list_item {
+    font-size: 14px;
+  }
+
+  .footer_bottom_list_item {
+    font-size: 18px;
+  }
+
+  .footer_social_media_img {
+    width: 40px;
+  }
+
+  .footer_inscription_input {
+    width: 196px;
+  }
+
+  .footer_inscription_input::placeholder {
+    padding: 0;
+  }
+
+  .footer_button {
+    padding: 0 34px;
+    font-size: 15px;
+  }
+
+  .footer_social_media_img {
+    border-radius: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav {
+    height: 88px;
+    padding: 16.5px 36px;
+  }
+
+  .responsive_navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .our_teams,
+  .the_club {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+  }
+
+  .toggle_menu {
+    z-index: 3;
+  }
+
+  .toggle_menu_list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toggle_menu_item {
+    font-size: 2rem;
+    margin-right: 50px;
+  }
+
+  #toggle-menu-btn {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    z-index: 4;
+    display: flex;
+    clip-path: none;
+    padding: 45px 100%;
+    font: normal normal bold 20px/18px Fira Sans;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  .toggle_menu_social_media {
+    display: flex;
+    gap: 28px;
+  }
+
+  .toggle_menu_social_media_icon {
+    margin-top: 50px;
+    background-color: var(--main-text-color);
+  }
+  #menu {
+    top: -150%;
+    left: 0;
+    width: 100%;
+  }
+
+  @keyframes slideTop {
+    from {
+      top: -100%;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes slideTop {
+    from {
+      top: -100%;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  @keyframes slideBottom {
+    from {
+      top: 0;
+      opacity: 1;
+    }
+    to {
+      top: -100%;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes slideTop {
+    from {
+      top: 0;
+      opacity: 1;
+    }
+    to {
+      top: -100%;
+      opacity: 0;
+    }
+  }
+
+  .left_side_list {
+    display: none;
+  }
+
+  .right_side_list {
+    display: none;
+  }
+
+  .logo_container {
+    display: none;
+  }
+
+  nav .button {
+    display: none;
+  }
+  .button {
+    margin: 0;
+  }
+
+  .news_cards_section {
+    gap: 50px;
+  }
+
+  .news_cards_container {
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  footer {
+    height: auto;
+    clip-path: polygon(0% 4%, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .footer_container {
+    padding-top: 100px;
+  }
+
+  .footer_top_container {
+    gap: 117px;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-left: 41px;
+  }
+
+  .footer_top_list_title {
+    font-size: 25px;
+  }
+
+  .footer_top_list_item {
+    font-size: 17px;
+  }
+
+  .footer_bottom_container {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .footer_club {
+    margin-left: 116px;
+  }
+
+  .footer_conditions {
+    margin-right: 118px;
+  }
+
+  .footer_social_media {
+    margin-right: 100px;
+  }
+
+  .footer_inscription {
+    flex-direction: column;
+    margin-right: 30px;
+  }
+
+  .footer_inscription_input {
+    padding-bottom: 20px;
+    width: 291px;
+  }
+
+  .footer_button {
+    padding: 20px 34px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .news_title {
+    font-size: 35px;
+  }
+
+  .news_list_item {
+    font-size: 15px;
+  }
+
+  .news_list {
+    justify-content: center;
+  }
+
+  .news_card {
+    width: 318px;
+    height: auto;
+  }
+
+  .news_card img {
+    width: auto;
+  }
+  .footer_top_container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 50px;
+  }
+
+  .footer_bottom_container {
+    margin-left: 40px;
+  }
+
+  .footer_club {
+    margin: 0;
+  }
+}

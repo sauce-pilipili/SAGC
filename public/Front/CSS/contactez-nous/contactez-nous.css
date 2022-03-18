@@ -1,0 +1,83 @@
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.contact_us_subtitle {
+  font: normal normal normal 30px/79px Fira Sans;
+  line-height: 30px;
+}
+
+.contact_us_title {
+  font: normal normal bold 66px/79px Fira Sans;
+  margin: 0;
+}
+
+.contact_us_text {
+  width: 50%;
+  margin-bottom: 70px;
+}
+
+.contact_us_form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 45%;
+}
+
+.contact_us_form_content_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact_us_picture {
+  width: 706px;
+  height: 605px;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form_input {
+  outline: none;
+  border: 1px solid #014833;
+  padding: 20px;
+  width: 297px;
+  height: 20px;
+}
+
+.form_input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+}
+
+.form_input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.form_input:not(:focus)::placeholder,
+textarea:not(:focus)::placeholder {
+  transition: 0.5s;
+}
+
+#request {
+  resize: none;
+  outline: none;
+  border: 1px solid #014833;
+  padding: 20px;
+}
+
+.flex_form_items {
+  display: flex;
+  gap: 50px;
+}
+
+.contact_us_form_content_container .button {
+  margin: auto auto auto 0;
+}

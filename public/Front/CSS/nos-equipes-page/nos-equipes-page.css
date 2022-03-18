@@ -1,0 +1,101 @@
+.our_teams_section {
+  width: 80%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.our_teams_title {
+  font: normal normal bold 66px/79px Fira Sans;
+}
+
+.our_teams_top_content {
+  display: flex;
+  justify-content: flex-start;
+  gap: 53px;
+}
+
+.our_teams_bottom_content {
+  display: flex;
+  justify-content: flex-start;
+  gap: 53px;
+  margin-top: 133px;
+}
+
+.our_teams_picture_container {
+  position: relative;
+  width: 430px;
+  height: auto; /* à changer en fonction de la hauteur maximal souhaité pour la photo. */
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+}
+
+.overlay {
+  width: 100%;
+  background: transparent linear-gradient(124deg, #edf000 0%, #009036 100%) 0%
+    0% no-repeat padding-box;
+  opacity: 0.75;
+  height: auto;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.white_button {
+  display: inline-block;
+  text-align: center;
+  padding: 19px 42px;
+  font: normal normal bold 15px/18px Fira Sans;
+  transform: skew(-30deg);
+  border: solid 1px var(--second-text-color);
+}
+
+.white_button_span {
+  display: inline-block;
+  transform: skew(30deg);
+  color: var(--second-text-color);
+}
+
+.white_button:hover {
+  background-color: var(--second-text-color);
+  transition: 0.5s;
+}
+
+.white_button:hover .white_button_span {
+  color: black;
+}
+
+.white_button:not(:hover) .white_button_span {
+  transition: 0.5s;
+}
+
+.white_button:not(:hover) {
+  transition: 0.5s;
+}

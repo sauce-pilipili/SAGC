@@ -1,0 +1,340 @@
+nav {
+  padding: 16.5px 143px;
+}
+
+/*======================HEADER======================*/
+
+#homepage-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  text-align: center;
+}
+
+.header_img {
+  height: 989px;
+  width: 100%;
+  filter: brightness(40%);
+  z-index: 1;
+  grid-column: 1 / span 4;
+  grid-row: 1;
+}
+
+.header_text_container {
+  position: relative;
+  z-index: 2;
+  grid-row: 1;
+  grid-column: 1/5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header_stroke_title {
+  font: normal normal bold 182px/218px Fira Sans;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--second-text-color);
+  text-transform: uppercase;
+}
+
+.header_title {
+  position: absolute;
+  left: 35%;
+  top: 48%;
+  font: normal normal bold 66px/79px Fira Sans;
+  color: var(--second-text-color);
+  text-transform: uppercase;
+}
+
+.header_next_match_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 1396px;
+  height: 402px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 60px #5959591a;
+  border-radius: 5px;
+  grid-column: 2/4;
+  z-index: 2;
+  margin-top: -200px;
+}
+
+.next_match_text {
+  margin: 0;
+}
+
+.next_match_location {
+  margin: 0;
+}
+
+/*======================CONTAINERS======================*/
+
+.first_container {
+  background-image: url("../IMG/Logo/logo-bg@2x.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 143px;
+}
+
+.second_container {
+  margin-top: 163px;
+}
+
+/*======================SECTION PRESENTATION======================*/
+
+.presentation_section {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 80%;
+  margin: auto;
+}
+
+.presentation_text_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 113px;
+}
+
+.presentation_stroke_title {
+  font: normal normal bold 182px/218px Fira Sans;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--stroke-title-color);
+  text-transform: uppercase;
+  position: absolute;
+  z-index: -1;
+  top: -10px;
+}
+
+.presentation_img {
+  width: 706px;
+  height: 429px;
+  grid-column: 2/2;
+}
+
+#presentation_button {
+  margin-top: 50px;
+}
+
+/*======================SECTION STATS======================*/
+
+.stats_section {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 182px;
+  text-align: center;
+}
+
+.stats_year_of_creation_number {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.stats_registered_number {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.stats_team_number_number {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.stats_year_of_creation_text {
+  font-size: 20px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.stats_registered_text {
+  font-size: 20px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.stats_team_number_text {
+  font-size: 20px;
+  margin: 0;
+  font-weight: normal;
+}
+
+/*======================SECTION NEXT EVENT======================*/
+
+.next_event_section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 195px;
+}
+
+.next_event_middle_container {
+  background: transparent linear-gradient(132deg, #edf000 -30%, #009036 100%) 0%
+    0% no-repeat padding-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.next_event_title {
+  color: var(--second-text-color);
+  font: normal normal bold 30px/79px Fira Sans;
+}
+
+.next_event_text {
+  color: var(--second-text-color);
+  font: normal normal normal 15px/25px Fira Sans;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 68px;
+}
+
+/*======================SECTION RESULTS CARD======================*/
+
+.results_section {
+  width: 80%;
+  margin: auto;
+}
+
+.results_title {
+  text-align: center;
+  margin-bottom: 63px;
+}
+
+.results_card_container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.results_card {
+  position: relative;
+  width: 430px;
+  height: auto;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #8f8f8f1a;
+  border: 1px solid #e2e2e2;
+  padding: 34px 26px;
+}
+
+.results_card::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0%;
+  height: 10px;
+  background: transparent linear-gradient(91deg, #edf000 -50%, #009036 100%) 0%
+    0% no-repeat padding-box;
+  bottom: 0;
+  left: 0;
+}
+
+.results_card:hover::before {
+  width: 100%;
+  transition: 0.25s;
+}
+
+.results_card:not(:hover)::before {
+  transition: 0.25s;
+}
+
+.results_card_dot_top {
+  position: absolute;
+  left: -3%;
+  top: -18%;
+  z-index: -1;
+}
+
+.results_card_dot_bottom {
+  position: absolute;
+  right: -3%;
+  bottom: -18%;
+  z-index: -1;
+  transform: rotate(-180deg);
+}
+
+.results_card_text_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.results_card_title {
+  font-size: 25px;
+  margin: 0;
+  color: var(--main-text-color);
+}
+
+.results_card_date {
+  font-size: 15px;
+  margin: 0;
+  color: var(--main-text-color);
+}
+
+.results_card_location {
+  font-size: 15px;
+  margin: 0;
+  color: var(--main-text-color);
+  font-weight: normal;
+}
+
+.results_card_left_team {
+  width: 95px;
+  height: 122px;
+}
+
+.results_card_match_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.results_card_match_number_container {
+  display: flex;
+  gap: 19px;
+}
+
+.results_card_match_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--main-text-color);
+  width: 50px;
+  height: 50px;
+  font: normal normal bold 25px/79px Fira Sans;
+  color: var(--main-text-color);
+}
+
+#results-btn {
+  display: flex;
+  margin: auto;
+  margin-top: 76px;
+  justify-content: center;
+  width: 10%;
+}
+
+/*======================SECTION LOGO======================*/
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-top: 125px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+}
+
+.partner_logo {
+  width: 80%;
+}

@@ -1,0 +1,185 @@
+/* FONTS */
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+
+/* ROOT */
+
+:root {
+  --main-text-color: #013c25;
+  --second-text-color: #fff;
+  --card-border-color: #e2e2e2;
+  --stroke-title-color: #00ac68;
+
+  /* LINEAR */
+
+  --gradiant-footer: linear-gradient(
+    173deg,
+    rgb(181, 217, 13) 17%,
+    rgba(13, 110, 17, 1) 100%
+  );
+
+  --gradiant-btn: transparent
+    linear-gradient(106deg, #edf000 -20%, #009036 100%) 0% 0% no-repeat
+    padding-box;
+}
+
+/* ALL */
+
+* {
+  font-family: "Fira Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--main-text-color);
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #00ac68;
+  color: white;
+}
+
+h2 {
+  color: var(--main-text-color);
+  font: normal normal bold 40px/79px Fira Sans;
+  margin: 0;
+}
+
+h3 {
+  color: var(--main-text-color);
+  font: normal normal bold 40px/79px Fira Sans;
+  margin: 0;
+}
+
+h4 {
+  color: var(--main-text-color);
+  font: normal normal normal 20px/79px Fira Sans;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-text-color);
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+nav {
+  color: var(--main-text-color);
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 16.5px 143px;
+  position: relative;
+  box-shadow: 0px 3px 30px #59595917;
+}
+
+time {
+  color: var(--main-text-color);
+  font: normal normal bold 30px/79px Fira Sans;
+}
+
+p {
+  margin: 0;
+  line-height: 30px;
+}
+
+.button {
+  background: var(--gradiant-btn);
+  text-align: left;
+  font: normal normal bold 15px/18px Fira Sans;
+  letter-spacing: 0px;
+  color: #ffffff;
+  padding: 19px 42px;
+  clip-path: polygon(15% 0%, 100% 0, 85% 100%, 0% 100%);
+}
+
+.button:hover {
+  transform: translateX(10px);
+  transition: 0.5s;
+}
+
+.button:not(:hover) {
+  transition: 0.5s;
+}
+
+.white_button {
+  display: inline-block;
+  text-align: center;
+  padding: 19px 42px;
+  font: normal normal bold 15px/18px Fira Sans;
+  transform: skew(-30deg);
+  border: solid 1px var(--second-text-color);
+}
+
+.white_button_span {
+  display: inline-block;
+  transform: skew(30deg);
+  color: var(--second-text-color);
+}
+
+.white_button:hover {
+  background-color: var(--second-text-color);
+  transition: 0.5s;
+}
+
+.white_button:hover .white_button_span {
+  color: black;
+}
+
+.white_button:not(:hover) .white_button_span {
+  transition: 0.5s;
+}
+
+.white_button:not(:hover) {
+  transition: 0.5s;
+}
+
+.green_button {
+  display: inline-block;
+  text-align: center;
+  padding: 19px 18px;
+  font: normal normal bold 15px/18px Fira Sans;
+  transform: skew(-30deg);
+  border: solid 1px var(--main-text-color);
+}
+
+.green_button_span {
+  display: inline-block;
+  transform: skew(30deg);
+  color: var(--main-text-color);
+}
+
+.green_button:hover {
+  background-color: var(--main-text-color);
+  transition: 0.5s;
+}
+
+.green_button:hover .green_button_span {
+  color: white;
+}
+
+.green_button:not(:hover) .green_button_span {
+  transition: 0.5s;
+}
+
+.green_button:not(:hover) {
+  transition: 0.5s;
+}

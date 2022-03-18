@@ -1,0 +1,761 @@
+@media screen and (max-width: 1440px) {
+  nav {
+    padding: 16.5px 10px;
+  }
+
+  .header_stroke_title {
+    font: normal normal bold 134px/218px Fira Sans;
+  }
+
+  .header_title {
+    left: 30%;
+    top: 46%;
+  }
+
+  .header_next_match_container {
+    width: 1250px;
+  }
+
+  .presentation_stroke_title {
+    font: normal normal bold 134px/218px Fira Sans;
+  }
+
+  .next_event_left_img {
+    width: 33.33%;
+  }
+
+  .next_event_right_img {
+    width: 33.33%;
+  }
+
+  .results_card_match_number {
+    width: 30px;
+    height: 30px;
+  }
+
+  #results-card-2::after {
+    width: 386px;
+    left: 383px;
+  }
+
+  .results_card_left_team {
+    width: 30%;
+  }
+
+  .results_card_right_team {
+    width: 30%;
+  }
+
+  #results-btn {
+    width: 15%;
+  }
+
+  .news_section {
+    width: 80%;
+    margin: auto;
+  }
+
+  .news_stroke_title {
+    font: normal normal bold 134px/218px Fira Sans;
+    top: -7rem;
+    left: 2%;
+  }
+
+  .news_dot {
+    top: -1.5rem;
+    left: -22rem;
+  }
+
+  .partner_logo {
+    width: 100%;
+  }
+}
+
+@media screen and (max-widht: 1162px) {
+  .next_event_title {
+    font: normal normal bold 27px/79px Fira Sans;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .button {
+    padding: 9px 33px;
+    align-items: center;
+    font: normal normal bold 14 px/18px Fira Sans;
+    margin: auto;
+  }
+
+  .logo_container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo {
+    width: 50%;
+  }
+
+  .left_side_list {
+    gap: 45px;
+  }
+
+  .left_side_list_item {
+    font-size: 12px;
+  }
+
+  .right_side_list {
+    padding-left: 180px;
+  }
+
+  .right_side_list_item {
+    font-size: 12px;
+  }
+  .news_cards_container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .news_dot {
+    left: -25.9rem;
+    top: 32.5rem;
+    transform: rotate(90deg);
+  }
+
+  .header_stroke_title {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    font: normal normal bold 105px/218px Fira Sans;
+  }
+
+  .header_title {
+    top: 31%;
+    left: 23%;
+  }
+
+  .header_next_match_container {
+    width: 868px;
+  }
+
+  .presentation_img {
+    width: 318px;
+    height: 36px;
+  }
+
+  .presentation_text_container {
+    width: 50%;
+  }
+
+  .presentation_stroke_title {
+    font: normal normal bold 105px/218px Fira Sans;
+    top: 6px;
+  }
+
+  .presentation_title {
+    width: 300px;
+  }
+
+  .presentation_text {
+    width: 350px;
+  }
+
+  .presentation_img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+
+  .next_event_title {
+    font: normal normal bold 19px/79px Fira Sans;
+  }
+
+  .next_event_text {
+    font: normal normal normal 14px/25px Fira Sans;
+    margin-bottom: 30px;
+  }
+
+  .white_button {
+    padding: 9px 33px;
+    margin-bottom: 20px;
+  }
+
+  .results_card_container {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .results_card_dot_top {
+    left: 15%;
+    top: -5%;
+  }
+
+  .results_card_dot_bottom {
+    right: 100px;
+    bottom: -5%;
+  }
+
+  #results-card-2::after {
+    width: 483px;
+    left: 168px;
+    top: 600px;
+  }
+
+  .results_card_left_team {
+    width: 25%;
+  }
+
+  .results_card_right_team {
+    width: 25%;
+  }
+
+  #results-btn {
+    width: 20%;
+  }
+
+  .news_stroke_title {
+    font: normal normal bold 105px/218px Fira Sans;
+  }
+
+  .partner_logo {
+    width: 115%;
+  }
+
+  .footer_top_list_title {
+    font-size: 18px;
+  }
+
+  .footer_top_list_item {
+    font-size: 14px;
+  }
+
+  .footer_bottom_list_item {
+    font-size: 18px;
+  }
+
+  .footer_social_media_img {
+    width: 40px;
+  }
+
+  .footer_inscription_input {
+    width: 196px;
+  }
+
+  .footer_inscription_input::placeholder {
+    padding: 0;
+  }
+
+  .footer_button {
+    padding: 0px 34px;
+    font-size: 15px;
+  }
+
+  .footer_social_media_img {
+    border-radius: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    height: 88px;
+    padding: 16.5px 36px;
+  }
+
+  .responsive_navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .our_teams,
+  .the_club {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+  }
+
+  .toggle_menu {
+    z-index: 3;
+  }
+
+  .toggle_menu_list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toggle_menu_item {
+    font-size: 2rem;
+    margin-right: 50px;
+  }
+
+  #toggle-menu-btn {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    z-index: 4;
+    display: flex;
+    clip-path: none;
+    padding: 45px 100%;
+    font: normal normal bold 20px/18px Fira Sans;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  .toggle_menu_social_media {
+    display: flex;
+    gap: 28px;
+  }
+
+  .toggle_menu_social_media_icon {
+    margin-top: 50px;
+    background-color: var(--main-text-color);
+  }
+  #menu {
+    top: -150%;
+    left: 0;
+    width: 100%;
+  }
+
+  @keyframes slideTop {
+    from {
+      top: -100%;
+      opacity: 0;
+    }
+    to {
+      top: 0%;
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes slideTop {
+    from {
+      top: -100%;
+      opacity: 0;
+    }
+    to {
+      top: 0%;
+      opacity: 1;
+    }
+  }
+  @keyframes slideBottom {
+    from {
+      top: 0%;
+      opacity: 1;
+    }
+    to {
+      top: -100%;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes slideTop {
+    from {
+      top: 0%;
+      opacity: 1;
+    }
+    to {
+      top: -100%;
+      opacity: 0;
+    }
+  }
+
+  .left_side_list {
+    display: none;
+  }
+
+  .right_side_list {
+    display: none;
+  }
+
+  .logo_container {
+    display: none;
+  }
+
+  nav .button {
+    display: none;
+  }
+
+  .header_stroke_title {
+    top: 15%;
+    left: 0.5rem;
+    font: normal normal bold 86px/218px Fira Sans;
+  }
+
+  .header_title {
+    top: 22%;
+    left: 6.300000000000001rem;
+  }
+
+  .header_next_match_container {
+    width: 600px;
+    flex-direction: column;
+    height: auto;
+    padding: 50px 0;
+    gap: 50px;
+  }
+
+  .presentation_section {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .presentation_stroke_title {
+    font: normal normal bold 251px/218px Fira Sans;
+    top: -31px;
+  }
+
+  .presentation_title {
+    font: normal normal bold 51px/79px Fira Sans;
+  }
+
+  .presentation_text {
+    width: 581px;
+  }
+
+  #presentation_button {
+    padding: 25px 56px;
+    margin: 50px 0;
+  }
+
+  .presentation_img {
+    margin-top: 50px;
+  }
+
+  .stats_section {
+    flex-direction: column;
+    gap: 150px;
+  }
+
+  .next_event_section {
+    flex-direction: column;
+  }
+
+  .next_event_left_img {
+    width: 100%;
+  }
+
+  .next_event_middle_container {
+    height: 635px;
+  }
+
+  .next_event_title {
+    font: normal normal bold 41px/79px Fira Sans;
+  }
+
+  .next_event_text {
+    font: normal normal normal 26px/25px Fira Sans;
+    line-height: 40px;
+  }
+
+  .white_button {
+    padding: 25px 56px;
+    margin-top: 50px;
+  }
+
+  .white_button_span {
+    font-size: 20px;
+  }
+
+  .next_event_right_img {
+    width: 100%;
+  }
+
+  .results_card_dot_top {
+    left: 4%;
+  }
+
+  .results_card_dot_bottom {
+    right: 4%;
+  }
+
+  #results-card-2::after {
+    left: 66px;
+    top: 575px;
+  }
+
+  #results-btn {
+    padding: 25px 56px;
+    width: 25%;
+  }
+
+  .news_stroke_title {
+    font: normal normal bold 82px/218px Fira Sans;
+    top: -6.5rem;
+  }
+
+  .news_dot {
+    left: -31.9rem;
+  }
+
+  footer {
+    height: auto;
+    clip-path: polygon(0% 4%, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .footer_container {
+    padding-top: 100px;
+  }
+
+  .footer_top_container {
+    gap: 117px;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-left: 41px;
+  }
+
+  .footer_top_list_title {
+    font-size: 25px;
+  }
+
+  .footer_top_list_item {
+    font-size: 17px;
+  }
+
+  .footer_bottom_container {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .footer_club {
+    margin-left: 116px;
+  }
+
+  .footer_conditions {
+    margin-right: 100px;
+  }
+
+  .footer_social_media {
+    margin-right: 100px;
+  }
+
+  .footer_inscription {
+    flex-direction: column;
+  }
+
+  .footer_inscription_input {
+    padding-bottom: 20px;
+    width: 291px;
+  }
+
+  .footer_button {
+    padding: 20px 34px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header_stroke_title {
+    top: 15%;
+    left: 0.3rem;
+    font: normal normal bold 48px/218px Fira Sans;
+  }
+  .toggle_menu {
+    z-index: 3;
+  }
+
+  .toggle_menu_list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toggle_menu_item {
+    font-size: 2rem;
+    margin-right: 50px;
+  }
+
+  #toggle-menu-btn {
+    position: absolute;
+    bottom: 0px;
+    margin: 0;
+    z-index: 4;
+    display: flex;
+    clip-path: none;
+    padding: 45px 100%;
+    font: normal normal bold 20px/18px Fira Sans;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  .toggle_menu_social_media {
+    display: flex;
+    gap: 28px;
+  }
+
+  .toggle_menu_social_media_icon {
+    margin-top: 50px;
+    background-color: var(--main-text-color);
+  }
+  #menu {
+    top: -150%;
+    left: 0;
+    width: 100%;
+  }
+
+  @keyframes slideTop {
+    from {
+      top: -100%;
+      opacity: 0;
+    }
+    to {
+      top: 0%;
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes slideTop {
+    from {
+      top: -100%;
+      opacity: 0;
+    }
+    to {
+      top: 0%;
+      opacity: 1;
+    }
+  }
+  @keyframes slideBottom {
+    from {
+      top: 0%;
+      opacity: 1;
+    }
+    to {
+      top: -100%;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes slideTop {
+    from {
+      top: 0%;
+      opacity: 1;
+    }
+    to {
+      top: -100%;
+      opacity: 0;
+    }
+  }
+
+  .header_title {
+    left: 6.300000000000001rem;
+    top: 29%;
+    font-size: 25px;
+  }
+
+  .header_img {
+    height: 517px;
+  }
+
+  .news_dot {
+    display: none;
+  }
+
+  .header_next_match_container {
+    width: 350px;
+    padding: 50px 15px;
+  }
+
+  .first_container {
+    background-image: url("../IMG/Logo/logo-bg.png");
+    background-size: initial;
+    background-position: 50% 40%;
+  }
+
+  .left_team {
+    width: 30;
+  }
+
+  .right_team {
+    width: 30;
+  }
+
+  .presentation_stroke_title {
+    font: normal normal bold 150px/218px Fira Sans;
+    top: 4px;
+  }
+
+  .presentation_title {
+    font: normal normal bold 35px/79px Fira Sans;
+  }
+
+  .presentation_text {
+    width: 367px;
+  }
+
+  .button {
+    padding: 25px 60px;
+    margin: 50px 0;
+    width: 130px;
+  }
+
+  .next_event_middle_container {
+    height: auto;
+  }
+
+  .next_event_title {
+    font-size: 30px;
+    margin-top: 50px;
+  }
+
+  .next_event_text {
+    font-size: 25px;
+    margin: 30px 0;
+  }
+
+  .white_button {
+    padding: 25px 26px;
+    margin: 0 0 50px 0;
+  }
+
+  .results_card {
+    width: 317px;
+  }
+
+  .results_card_dot_top {
+    left: -17%;
+    top: -15px;
+  }
+
+  .results_card_dot_bottom {
+    right: -9%;
+    bottom: -2%;
+  }
+
+  #results-card-2::after {
+    left: -15px;
+    top: 575px;
+    width: 370px;
+  }
+
+  .results_card_match_number {
+    width: 40px;
+    height: 40px;
+  }
+
+  #results-btn {
+    width: 50%;
+  }
+
+  .news_stroke_title {
+    font: normal normal bold 46px/218px Fira Sans;
+    top: -5.5rem;
+  }
+
+  .news_title {
+    font: normal normal bold 25px/79px Fira Sans;
+  }
+
+  .news_cards_container {
+    display: none;
+  }
+
+  .footer_top_container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 50px;
+  }
+
+  .footer_bottom_container {
+    margin-left: 40px;
+  }
+
+  .footer_club {
+    margin: 0;
+  }
+}

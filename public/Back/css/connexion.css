@@ -1,0 +1,45 @@
+.section-connexion_logo {
+    background: linear-gradient(128deg, rgba(237,240,0,1) 0%, rgba(0,144,54,1) 50%);
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloc-logo {
+    background-color: white;
+    box-shadow: 1px 9px 60px #00000030;
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.bloc-logo:hover {
+    box-shadow: none;
+}
+
+.section-connexion_form {
+    background-color: var(--bg);
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-connexion_form .content-form {
+    width: 60%;
+}
+
+@media (max-height:520px) {
+    .section-connexion_form,
+    .section-connexion_logo {
+        height: auto;
+    }
+}
