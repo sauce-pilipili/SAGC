@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Categories;
 use App\Form\CategoriesType;
+use App\Repository\ArticlesRepository;
 use App\Repository\CategoriesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,9 +19,10 @@ class CategoriesController extends AbstractController
     /**
      * @Route("/", name="app_categories_index", methods={"GET"})
      */
-    public function index(CategoriesRepository $categoriesRepository): Response
+    public function index(CategoriesRepository $categoriesRepository, ArticlesRepository $articlesRepository): Response
     {
         return $this->render('categories/index.html.twig', [
+            'articles'=> $articlesRepository->findAll(),
             'categories' => $categoriesRepository->findAll(),
         ]);
     }
@@ -77,8 +79,13 @@ class CategoriesController extends AbstractController
     /**
      * @Route("/{id}", name="app_categories_delete", methods={"POST"})
      */
-    public function delete(Request $request, Categories $category, CategoriesRepository $categoriesRepository): Response
+    public function delete(Request $request, Categories $category, CategoriesRepository $categoriesRepository,ArticlesRepository $articlesRepository): Response
     {
+        $articleDeLaCategorie = $articlesRepository->findBy(['categorie'=>$category]);
+        foreach ($articleDeLaCategorie as $article){
+            unlink($this->getParameter('images_directory')."/".$article->getImageEnAvant());
+            $articlesRepository->remove($article);
+        }
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
             $categoriesRepository->remove($category);
         }

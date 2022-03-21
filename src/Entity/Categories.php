@@ -32,17 +32,24 @@ class Categories
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="categories")
+     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="categories", )
      */
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity=Categories::class, mappedBy="parent")
+     * @ORM\OneToMany(targetEntity=Categories::class, mappedBy="parent", cascade={"remove"})
      */
     private $categories;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Articles::class, mappedBy="categorie")
+     */
+    private $articles;
+
+
     public function __construct()
     {
+        $this->articles = new ArrayCollection();
         $this->categories = new ArrayCollection();
     }
 
@@ -71,6 +78,36 @@ class Categories
     public function setParent(?self $parent): self
     {
         $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Articles[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Articles $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Articles $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getCategorie() === $this) {
+                $article->setCategorie(null);
+            }
+        }
 
         return $this;
     }
