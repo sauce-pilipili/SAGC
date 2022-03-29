@@ -1,0 +1,194 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adherents{% endblock %}
+
+{% block body %}
+    <h1>Adherents</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ adherent.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ adherent.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ adherent.prénom }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ adherent.genre ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>LieuDeNaissance</th>
+                <td>{{ adherent.lieuDeNaissance }}</td>
+            </tr>
+            <tr>
+                <th>DepartementDeNaissance</th>
+                <td>{{ adherent.departementDeNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ adherent.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ adherent.ville }}</td>
+            </tr>
+            <tr>
+                <th>CodePostal</th>
+                <td>{{ adherent.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ adherent.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>DateDeNaissance</th>
+                <td>{{ adherent.dateDeNaissance ? adherent.dateDeNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Discipline</th>
+                <td>{{ adherent.discipline }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ adherent.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ adherent.telephone }}</td>
+            </tr>
+            <tr>
+                <th>PhotoIdentite</th>
+                <td>{{ adherent.photoIdentite }}</td>
+            </tr>
+            <tr>
+                <th>NomDupere</th>
+                <td>{{ adherent.nomDupere }}</td>
+            </tr>
+            <tr>
+                <th>PrenomDuPere</th>
+                <td>{{ adherent.prenomDuPere }}</td>
+            </tr>
+            <tr>
+                <th>TelephoneDuPere</th>
+                <td>{{ adherent.telephoneDuPere }}</td>
+            </tr>
+            <tr>
+                <th>AdresseDuPere</th>
+                <td>{{ adherent.adresseDuPere }}</td>
+            </tr>
+            <tr>
+                <th>VilleDuPere</th>
+                <td>{{ adherent.villeDuPere }}</td>
+            </tr>
+            <tr>
+                <th>CodePostalDuPere</th>
+                <td>{{ adherent.codePostalDuPere }}</td>
+            </tr>
+            <tr>
+                <th>NomDeLaMere</th>
+                <td>{{ adherent.nomDeLaMere }}</td>
+            </tr>
+            <tr>
+                <th>PrenomDeLaMere</th>
+                <td>{{ adherent.prenomDeLaMere }}</td>
+            </tr>
+            <tr>
+                <th>TelephoneDeLaMere</th>
+                <td>{{ adherent.telephoneDeLaMere }}</td>
+            </tr>
+            <tr>
+                <th>AdresseDeLaMere</th>
+                <td>{{ adherent.adresseDeLaMere }}</td>
+            </tr>
+            <tr>
+                <th>VilleDeLaMere</th>
+                <td>{{ adherent.villeDeLaMere }}</td>
+            </tr>
+            <tr>
+                <th>CodePostalDeLaMere</th>
+                <td>{{ adherent.codePostalDeLaMere }}</td>
+            </tr>
+            <tr>
+                <th>ProfessionDuPere</th>
+                <td>{{ adherent.professionDuPere }}</td>
+            </tr>
+            <tr>
+                <th>ProfessionDeLaMere</th>
+                <td>{{ adherent.professionDeLaMere }}</td>
+            </tr>
+            <tr>
+                <th>ModaliteDePratique</th>
+                <td>{{ adherent.modaliteDePratique ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>AutorisationPriseDeVue</th>
+                <td>{{ adherent.autorisationPriseDeVue ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>AutorisationActiviteSagc</th>
+                <td>{{ adherent.autorisationActiviteSagc ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ConnaissanceInfoNoticeAssuranceDommageCorpo</th>
+                <td>{{ adherent.connaissanceInfoNoticeAssuranceDommageCorpo ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>AutorisationDeQuitterLesLieuxEnFinActivité</th>
+                <td>{{ adherent.autorisationDeQuitterLesLieuxEnFinActivité ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>AutorisationPratiqueANiveauSup</th>
+                <td>{{ adherent.autorisationPratiqueANiveauSup ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>AutorisationPriseEnChargeMedicaleAccident</th>
+                <td>{{ adherent.autorisationPriseEnChargeMedicaleAccident ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>EngagementDeplacementCompetition</th>
+                <td>{{ adherent.engagementDeplacementCompetition ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ConnaissanceReglementInterieur</th>
+                <td>{{ adherent.connaissanceReglementInterieur ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CertificationSurHonneurExcactitdueRenseignement</th>
+                <td>{{ adherent.certificationSurHonneurExcactitdueRenseignement ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CertificatMedical</th>
+                <td>{{ adherent.certificatMedical }}</td>
+            </tr>
+            <tr>
+                <th>QuestionnaireSanteSport</th>
+                <td>{{ adherent.questionnaireSanteSport }}</td>
+            </tr>
+            <tr>
+                <th>AttestationSanteSport</th>
+                <td>{{ adherent.attestationSanteSport }}</td>
+            </tr>
+            <tr>
+                <th>LocationDePatin</th>
+                <td>{{ adherent.locationDePatin ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>PointureDesPatins</th>
+                <td>{{ adherent.pointureDesPatins }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_adherents_index') }}">back to list</a>
+
+    <a href="{{ path('app_adherents_edit', {'id': adherent.id}) }}">edit</a>
+
+    {{ include('adherents/_delete_form.html.twig') }}
+{% endblock %}

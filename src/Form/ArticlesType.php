@@ -55,7 +55,7 @@ class ArticlesType extends AbstractType
                 'label' => false,
                 'multiple' => false,
                 'mapped' => false,
-                'required' => true
+                'required' => false
             ])
             ->add('legendePhotoEnAvant', TextType::class, [
                 'attr' => [

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}SAGC{% endblock %}
 
 {% block body %}
 {{ include('_includes/Front/navigation.html.twig') }}
@@ -16,11 +16,10 @@
 
             <div class="next_match_text_container">
                 <h2 class="next_match_text">Prochain Match</h2>
-                <time class="next_match_date">15 Avril 2022 à 15h30</time>
-                <h4 class="next_match_location">Stade Bordealais</h4>
+                <time class="next_match_date">{{ match.dateMatch|format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }} à {{ match.dateMatch|date("H:i") }}</time>
+                <h4 class="next_match_location">{{ match.lieuDuMatch }}</h4>
             </div>
-
-            <img src="{{ asset('Front/IMG/Logo/Paris-Hockey-Club.png') }}" alt="Team logo" class="right_team" />
+            <img style="max-width: 250px" src="{{ asset('uploads/'~match.adversaire.logo) }}" alt="Team logo" class="right_team" />
         </div>
     </header>
     <main>
@@ -83,62 +82,25 @@
                 <div class="results_card_container">
                     <img src="{{ asset('Front/IMG/Dots/Groupe 354.png') }}" alt="Grille de répétitions décorative" class="results_card_dot_top" />
                     <img src="{{ asset('Front/IMG/Dots/Groupe 354.png') }}" alt="Grille de répétitions décorative" class="results_card_dot_bottom" />
-                    <div class="results_card">
-                        <div class="results_card_text_container">
-                            <h5 class="results_card_title">Nationale 2</h5>
-                            <h5 class="results_card_date">Mardi 10 Janvier à 20h00</h5>
-                            <h5 class="results_card_location">Stade de Cestas</h5>
-                        </div>
-
-                        <div class="results_card_match_container">
-                            <img src="{{ asset('Front/IMG/Logo/logo.png') }}" alt="Logo d'équipe" class="results_card_left_team" />
-
-                            <div class="results_card_match_number_container">
-                                <span class="results_card_match_number">1</span>
-                                <span class="results_card_match_number">10</span>
-                            </div>
-
-                            <img src="{{ asset('Front/IMG/Logo/La-vendeenne.png') }}" alt="Logo d'équipe" class="results_card_right_team" />
-                        </div>
-                    </div>
-
+                    {% for resultat in resultats %}
                     <div class="results_card" id="results-card-2">
                         <div class="results_card_text_container">
-                            <h5 class="results_card_title">Nationale 3</h5>
-                            <h5 class="results_card_date">Mardi 10 Janvier à 20h00</h5>
-                            <h5 class="results_card_location">Stade de Cestas</h5>
+                            <h5 class="results_card_title">{{ resultat.equipe }}</h5>
+                            <h5 class="results_card_date">{{ resultat.dateMatch|format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }} à {{ resultat.dateMatch|date("H:i") }}</h5>
+                            <h5 class="results_card_location">{{ resultat.lieuDuMatch }}</h5>
                         </div>
 
                         <div class="results_card_match_container">
                             <img src="{{ asset('Front/IMG/Logo/logo.png') }}" alt="Logo d'équipe" class="results_card_left_team" />
 
                             <div class="results_card_match_number_container">
-                                <span class="results_card_match_number">1</span>
-                                <span class="results_card_match_number">10</span>
+                                <span class="results_card_match_number">{{ resultat.resultatSagc }}</span>
+                                <span class="results_card_match_number">{{ resultat.resultatAdversaire }}</span>
                             </div>
-
-                            <img src="{{ asset('Front/IMG/Logo/Noisy-le-grand.png') }}" alt="Logo d'équipe" class="results_card_right_team" />
+                            <img style="max-width: 100px" src="{{ asset('uploads/'~match.adversaire.logo) }}" alt="Logo d'équipe" class="results_card_right_team" />
                         </div>
                     </div>
-
-                    <div class="results_card">
-                        <div class="results_card_text_container">
-                            <h5 class="results_card_title">Jeunes</h5>
-                            <h5 class="results_card_date">Mardi 10 Janvier à 20h00</h5>
-                            <h5 class="results_card_location">Stade de Cestas</h5>
-                        </div>
-
-                        <div class="results_card_match_container">
-                            <img src="{{ asset('Front/IMG/Logo/Scra.png') }}" alt="Logo d'équipe" class="results_card_left_team" />
-
-                            <div class="results_card_match_number_container">
-                                <span class="results_card_match_number">1</span>
-                                <span class="results_card_match_number">10</span>
-                            </div>
-
-                            <img src="{{ asset('Front/IMG/Logo/Scra.png') }}" alt="Logo d'équipe" class="results_card_right_team" />
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
 
                 <a href="#" class="button" id="results-btn">Voir tous les résultats</a>
@@ -152,54 +114,70 @@
 
                 <div class="news_cards_container">
                     <img src="{{ asset('Front/IMG/Dots/Grille de répétition 3.png') }}" alt="Grille de répétition décorative" class="news_dot" />
-
-                    <div class="news_card">
-                        <img src="{{ asset('Front/IMG/Pictures/article_img(1).png') }}" alt="Photo de joueurs" class="news_card_img" />
-                        <div class="news_text_container">
-                            <h5 class="news_article_category">Nom de la catégorie</h5>
-                            <h5 class="news_article_title">Titre de l'article</h5>
-                            <p class="news_article_text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Temporibus voluptatem molestiae, distinctio molestias
-                                excepturi consequuntur a illo officiis veritatis harum! Maxime
-                                magnam atque corporis qui earum eligendi placeat provident
-                                molestiae?
-                            </p>
-                            <a href="#" class="news_btn">Lire l'article</a>
+                    {% for article in articles %}
+                        <div class="news_card">
+                            <img src="{{ asset('uploads/'~article.imageEnAvant) }}" alt="{{ article.legendePhotoEnAvant }}" class="news_card_img" />
+                            <div class="news_text_container">
+                                <h5 class="news_article_category">{{ article.categorie.name }}</h5>
+                                <h5 class="news_article_title">{{ article.title }}</h5>
+                                <p class="news_article_text">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                    Temporibus voluptatem molestiae, distinctio molestias
+                                    excepturi consequuntur a illo officiis veritatis harum! Maxime
+                                    magnam atque corporis qui earum eligendi placeat provident
+                                    molestiae?
+                                </p>
+                                <a href="{{ path('app_sagc_article', {slug: article.slug}) }}" class="news_btn">Lire l'article</a>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
+{#                    <div class="news_card">#}
+{#                        <img src="{{ asset('Front/IMG/Pictures/article_img(1).png') }}" alt="Photo de joueurs" class="news_card_img" />#}
+{#                        <div class="news_text_container">#}
+{#                            <h5 class="news_article_category">Nom de la catégorie</h5>#}
+{#                            <h5 class="news_article_title">Titre de l'article</h5>#}
+{#                            <p class="news_article_text">#}
+{#                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.#}
+{#                                Temporibus voluptatem molestiae, distinctio molestias#}
+{#                                excepturi consequuntur a illo officiis veritatis harum! Maxime#}
+{#                                magnam atque corporis qui earum eligendi placeat provident#}
+{#                                molestiae?#}
+{#                            </p>#}
+{#                            <a href="#" class="news_btn">Lire l'article</a>#}
+{#                        </div>#}
+{#                    </div>#}
 
-                    <div class="news_card">
-                        <img src="{{ asset('Front/IMG/Pictures/article_img(2).png') }}" alt="Photo de joueurs" class="news_card_img" />
-                        <div class="news_text_container">
-                            <h5 class="news_article_category">Nom de la catégorie</h5>
-                            <h5 class="news_article_title">Titre de l'article</h5>
-                            <p class="news_article_text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Temporibus voluptatem molestiae, distinctio molestias
-                                excepturi consequuntur a illo officiis veritatis harum! Maxime
-                                magnam atque corporis qui earum eligendi placeat provident
-                                molestiae?
-                            </p>
-                            <a href="#" class="news_btn">Lire l'article</a>
-                        </div>
-                    </div>
+{#                    <div class="news_card">#}
+{#                        <img src="{{ asset('Front/IMG/Pictures/article_img(2).png') }}" alt="Photo de joueurs" class="news_card_img" />#}
+{#                        <div class="news_text_container">#}
+{#                            <h5 class="news_article_category">Nom de la catégorie</h5>#}
+{#                            <h5 class="news_article_title">Titre de l'article</h5>#}
+{#                            <p class="news_article_text">#}
+{#                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.#}
+{#                                Temporibus voluptatem molestiae, distinctio molestias#}
+{#                                excepturi consequuntur a illo officiis veritatis harum! Maxime#}
+{#                                magnam atque corporis qui earum eligendi placeat provident#}
+{#                                molestiae?#}
+{#                            </p>#}
+{#                            <a href="#" class="news_btn">Lire l'article</a>#}
+{#                        </div>#}
+{#                    </div>#}
 
-                    <div class="news_card">
-                        <img src="{{ asset('Front/IMG/Pictures/article_img(2).png') }}" alt="Photo de joueurs" class="news_card_img" />
-                        <div class="news_text_container">
-                            <h5 class="news_article_category">Nom de la catégorie</h5>
-                            <h5 class="news_article_title">Titre de l'article</h5>
-                            <p class="news_article_text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Temporibus voluptatem molestiae, distinctio molestias
-                                excepturi consequuntur a illo officiis veritatis harum! Maxime
-                                magnam atque corporis qui earum eligendi placeat provident
-                                molestiae?
-                            </p>
-                            <a href="#" class="news_btn">Lire l'article</a>
-                        </div>
-                    </div>
+{#                    <div class="news_card">#}
+{#                        <img src="{{ asset('Front/IMG/Pictures/article_img(2).png') }}" alt="Photo de joueurs" class="news_card_img" />#}
+{#                        <div class="news_text_container">#}
+{#                            <h5 class="news_article_category">Nom de la catégorie</h5>#}
+{#                            <h5 class="news_article_title">Titre de l'article</h5>#}
+{#                            <p class="news_article_text">#}
+{#                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.#}
+{#                                Temporibus voluptatem molestiae, distinctio molestias#}
+{#                                excepturi consequuntur a illo officiis veritatis harum! Maxime#}
+{#                                magnam atque corporis qui earum eligendi placeat provident#}
+{#                                molestiae?#}
+{#                            </p>#}
+{#                            <a href="#" class="news_btn">Lire l'article</a>#}
+{#                        </div>#}
+{#                    </div>#}
                 </div>
             </section>
 

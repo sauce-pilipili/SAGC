@@ -7,6 +7,7 @@ use App\Form\CategoriesType;
 use App\Repository\ArticlesRepository;
 use App\Repository\CategoriesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +20,20 @@ class CategoriesController extends AbstractController
     /**
      * @Route("/", name="app_categories_index", methods={"GET"})
      */
-    public function index(CategoriesRepository $categoriesRepository, ArticlesRepository $articlesRepository): Response
+    public function index(Request $request, CategoriesRepository $categoriesRepository, ArticlesRepository $articlesRepository)
     {
+        if ($request->isXmlHttpRequest()) {
+            return new JsonResponse(
+                ['ok'=>$request->get('text'),
+                    'content' => $this->renderView('categories/_contentCategorie.html.twig',
+                    [
+                        'articles' => $articlesRepository->findBySearch($request->get('text')),
+                        'categories' => $categoriesRepository->findAll(),
+                    ])
+                ]);
+        }
         return $this->render('categories/index.html.twig', [
-            'articles'=> $articlesRepository->findAll(),
+            'articles' => $articlesRepository->findAll(),
             'categories' => $categoriesRepository->findAll(),
         ]);
     }
@@ -65,6 +76,7 @@ class CategoriesController extends AbstractController
         $form = $this->createForm(CategoriesType::class, $category);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $categoriesRepository->add($category);
             return $this->redirectToRoute('app_categories_index', [], Response::HTTP_SEE_OTHER);
@@ -79,14 +91,14 @@ class CategoriesController extends AbstractController
     /**
      * @Route("/{id}", name="app_categories_delete", methods={"POST"})
      */
-    public function delete(Request $request, Categories $category, CategoriesRepository $categoriesRepository,ArticlesRepository $articlesRepository): Response
+    public function delete(Request $request, Categories $category, CategoriesRepository $categoriesRepository, ArticlesRepository $articlesRepository): Response
     {
-        $articleDeLaCategorie = $articlesRepository->findBy(['categorie'=>$category]);
-        foreach ($articleDeLaCategorie as $article){
-            unlink($this->getParameter('images_directory')."/".$article->getImageEnAvant());
+        $articleDeLaCategorie = $articlesRepository->findBy(['categorie' => $category]);
+        foreach ($articleDeLaCategorie as $article) {
+            unlink($this->getParameter('images_directory') . "/" . $article->getImageEnAvant());
             $articlesRepository->remove($article);
         }
-        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $category->getId(), $request->request->get('_token'))) {
             $categoriesRepository->remove($category);
         }
 

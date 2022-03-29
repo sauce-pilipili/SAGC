@@ -1,0 +1,58 @@
+@media screen and (max-width: 1440px) {
+  .services_cards_container {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .services_cards_container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .flex_form_items {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .normal-size {
+    width: 286px;
+    height: 20px;
+  }
+
+  #request {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services_text {
+    width: auto;
+  }
+
+  .services_form_section {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .service_subtitle {
+    font-size: 25px;
+  }
+  .services_title {
+    font-size: 35px;
+  }
+
+  .services_card {
+    height: auto;
+  }
+
+  .services_form_section {
+    width: 100%;
+  }
+
+  #request {
+    width: 83%;
+  }
+}

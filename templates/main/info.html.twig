@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+{% block title %}SAGC -info pratique{% endblock %}
+{% block body %}
+    {{ include('_includes/Front/navigation.html.twig') }}
+    <main>
+        <section class="practical_information_text_section">
+            <h3 class="practical_information_subtitle">Le club</h3>
+            <h1 class="practical_information_title">INFOS PRATIQUES</h1>
+
+            <p class="practical_information_first_text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Saepe blanditiis voluptatum iste sit recusandae vero quos atque, eligendi magni veritatis</p>
+
+            <p class="practical_information_second_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+                commodi
+                quia odit amet vitae provident a! A qui facere quod quas asperiores excepturi incidunt aut repudiandae
+                voluptatum. Non, id suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, alias est!
+                Culpa consequuntur illum porro velit sit? Fugit eaque fuga adipisci. Quas ullam labore odio dolorem
+                nulla, quis harum. Aut.</p>
+
+            <div class="pratical_information_top_cards_container">
+                <div class="pratical_informations_card">
+                    <p class="pratical_informations_card_title">
+                        Planning d'entrainement
+                    </p>
+                    <a href="#" class="pratical_informations_see_more">Voir le planning</a>
+                </div>
+
+                <div class="pratical_informations_card">
+                    <p class="pratical_informations_card_title">
+                        La charte du joueur
+                    </p>
+                    <a href="#" class="pratical_informations_see_more">Voir la charte</a>
+                </div>
+
+                <div class="pratical_informations_card">
+                    <p class="pratical_informations_card_title">
+                        Le règlement intérieur
+                    </p>
+                    <a href="#" class="pratical_informations_see_more">Voir le règlement</a>
+                </div>
+            </div>
+
+            <div class="pratical_information_bottom_cards_container">
+                <div class="pratical_informations_card">
+                    <p class="pratical_informations_card_title">
+                        CERFA Sport Santé
+                    </p>
+                    <a href="#" class="pratical_informations_see_more">Voir le document CERFA</a>
+                </div>
+
+                <div class="pratical_informations_card">
+                    <p class="pratical_informations_card_title">
+                        Assurance
+                    </p>
+                    <a href="#" class="pratical_informations_see_more">Voir les assurances</a>
+                </div>
+
+                <div class="pratical_informations_card">
+                    <p class="pratical_informations_card_title">
+                        Guide Assurance
+                    </p>
+                    <a href="#" class="pratical_informations_see_more">Voir le guide</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    {{ include('_includes/Front/footer.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{(asset('Front/CSS/infos-pratiques/infos-pratiques.css')) }}">
+    <link rel="stylesheet" href=" {{ (asset('Front/CSS/infos-pratiques/infos-pratiques-responsive.css')) }}"
+
+{% endblock %}

@@ -1,0 +1,109 @@
+@media screen and (max-width: 1440px) {
+  nav {
+    padding: 16.5px 10px;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .news_cards_section {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  nav .button {
+    padding: 9px 33px;
+    align-items: center;
+    font: normal normal bold 14 px/18px Fira Sans;
+    margin: auto;
+  }
+
+  .logo_container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo {
+    width: 50%;
+  }
+
+  .left_side_list {
+    gap: 45px;
+  }
+
+  .left_side_list_item {
+    font-size: 12px;
+  }
+
+  .right_side_list {
+    padding-left: 180px;
+  }
+
+  .right_side_list_item {
+    font-size: 12px;
+  }
+
+  .article_header_picture {
+    width: 100%;
+  }
+
+  .article_picture {
+    width: 100%;
+  }
+
+  .news_cards_container {
+    flex-wrap: wrap;
+  }
+
+  .footer_top_list_title {
+    font-size: 18px;
+  }
+
+  .footer_top_list_item {
+    font-size: 14px;
+  }
+
+  .footer_bottom_list_item {
+    font-size: 18px;
+  }
+
+  .footer_social_media_img {
+    width: 40px;
+  }
+
+  .footer_inscription_input {
+    width: 196px;
+  }
+
+  .footer_inscription_input::placeholder {
+    padding: 0;
+  }
+
+  .footer_button {
+    padding: 0px 34px;
+    font-size: 15px;
+  }
+
+  .footer_social_media_img {
+    border-radius: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .news_cards_section {
+    gap: 50px;
+  }
+
+  .news_cards_section {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .article_title {
+    font-size: 35px;
+  }
+}

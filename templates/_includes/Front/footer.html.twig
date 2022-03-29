@@ -20,9 +20,9 @@
             <div class="footer_navigations">
                 <h3 class="footer_top_list_title">Navigation</h3>
                 <ul class="footer_top_list">
-                    <li><a href="#" class="footer_top_list_item">Accueil</a></li>
-                    <li><a href="#" class="footer_top_list_item">Contact</a></li>
-                    <li><a href="#" class="footer_top_list_item">Inscription</a></li>
+                    <li><a href="{{ path('app_main') }}" class="footer_top_list_item">Accueil</a></li>
+                    <li><a href="{{ path('app_contact') }}" class="footer_top_list_item">Contact</a></li>
+                    <li><a href="{{ path('app_inscription') }}" class="footer_top_list_item">Inscription</a></li>
                 </ul>
             </div>
 
@@ -40,9 +40,9 @@
                 <h3 class="footer_top_list_title">Le club</h3>
                 <ul class="footer_top_list">
                     <li>
-                        <a href="#" class="footer_top_list_item">Présentation du club</a>
+                        <a href="{{ path('app_club') }}" class="footer_top_list_item">Présentation du club</a>
                     </li>
-                    <li><a href="#" class="footer_top_list_item">Inscription</a></li>
+                    <li><a href="{{ path('app_inscription') }}" class="footer_top_list_item">Inscription</a></li>
                 </ul>
             </div>
         </div>

@@ -1,0 +1,86 @@
+{{ form_start(form, {'attr':{'class':'form'}}) }}
+<h2>Information sur la match</h2>
+<div class="row">
+    <label class="label" for="date-match">
+        <p>Date et heure du match</p>
+    </label>
+{{ form_errors(form.DateMatch) }}
+    {{ form_widget(form.DateMatch) }}
+{#    <input class="input" type="date" name="date-match" id="date-match">#}
+</div>
+{#<div class="row">#}
+{#    <label class="label" for="heure-match">#}
+{#        <p>Heure du match</p>#}
+{#    </label>#}
+{#    <input class="input" type="time" name="heure-match" id="heure-match">#}
+{#</div>#}
+<div class="row">
+    <label class="label" for="lieu-match">
+        <p>Lieu du match</p>
+    </label>
+    {{ form_errors(form.lieuDuMatch) }}
+    {{ form_widget(form.lieuDuMatch) }}
+{#    <input class="input" type="text" name="lieu-match" id="lieu-match" placeholder="Indiquer le lieu du match">#}
+</div>
+<div class="row-2">
+    <div class="row">
+        <label class="label" for="resultat-match-1">
+            <p>Résultat de l'équipe SAGC</p>
+            <span>A remplir si le match a déjà eu lieu</span>
+        </label>
+        {{ form_errors(form.resultatSagc) }}
+        {{ form_widget(form.resultatSagc) }}
+{#        <input class="input" type="text" name="resultat-match-1" id="resultat-match-1" placeholder="Indiquer le résultat du match">#}
+    </div>
+    <div class="row">
+        <label class="label" for="resultat-match-2">
+            <p>Résultats de l'équipe adverse</p>
+            <span>A remplir si le match a déjà eu lieu</span>
+        </label>
+        {{ form_errors(form.resultatAdversaire) }}
+        {{ form_widget(form.resultatAdversaire) }}
+{#        <input class="input" type="text" name="resultat-match-2" id="resultat-match-2" placeholder="Indiquer le résultat du match">#}
+    </div>
+</div>
+<h2>Les équipes</h2>
+<div class="row">
+    <label class="label" for="equipe-1">
+        <p>Nom de l'équipe</p>
+    </label>
+    {{ form_errors(form.equipe) }}
+    {{ form_widget(form.equipe) }}
+{#    <select class="input" name="equipe-1" id="equipe-1">#}
+{#        <option value="">Choisissez une équipe</option>#}
+{#        <option value="dog">Nationale 2</option>#}
+{#    </select>#}
+</div>
+<div class="row">
+
+        <label class="label" for="equipe-2">
+            <p>Nom de l'équipe externe</p>
+        </label>
+        {{ form_errors(form.adversaire) }}
+        {{ form_widget(form.adversaire) }}
+{#        <select class="input" name="equipe-2" id="equipe-2">#}
+{#            <option value="">Choisissez une équipe</option>#}
+{#            <option value="dog">Nationale 2</option>#}
+{#        </select>#}
+    </div>
+{#    <div class="row">#}
+{#        <a href="form-equipe-adverse.html" class="bouton-2" type="submit">#}
+{#            <svg xmlns="http://www.w3.org/2000/svg" width="14.07" height="14.07" viewBox="0 0 14.07 14.07">#}
+{#                <path id="ajouter" d="M11.035,4a.879.879,0,0,1,.879.879v5.276h5.276a.879.879,0,1,1,0,1.759H11.915v5.276a.879.879,0,1,1-1.759,0V11.915H4.879a.879.879,0,0,1,0-1.759h5.276V4.879A.879.879,0,0,1,11.035,4Z" transform="translate(-4 -4)" fill="#fff"/>#}
+{#            </svg>#}
+{#            <span>Ajouter une équipe</span>#}
+{#        </a>#}
+{#    </div>#}
+
+<div>
+    <button class="bouton-1" type="submit">
+        <span>Enregistrer</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14">
+            <path id="chevron-down" d="M.293,7.707a1,1,0,0,0,1.414,0L7,2.414l5.293,5.293a1,1,0,0,0,1.414-1.414l-6-6a1,1,0,0,0-1.414,0l-6,6A1,1,0,0,0,.293,7.707Z" transform="translate(8) rotate(90)"/>
+        </svg>
+    </button>
+</div>
+{{ form_end(form) }}

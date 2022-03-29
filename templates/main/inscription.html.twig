@@ -1,0 +1,797 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SAGC -inscription{% endblock %}
+
+{% block body %}
+    {{ include('_includes/Front/navigation.html.twig') }}
+
+
+    <main>
+    <section class="club_register_dues_section">
+        <h3 class="club_register_subtitle">Le club</h3>
+        <h1 class="club_register_title">INSCRIPTION AU CLUB</h1>
+
+        <h2 class="club_register_dues_title">Les cotisations</h2>
+
+        <div class="club_register_cards_container">
+            <div class="club_register_card">
+                <p class="club_register_card_title">
+                    Loisirs et école de patinage
+                </p>
+                <p class="club_register_price">95€</p>
+            </div>
+
+            <div class="club_register_card">
+                <p class="club_register_card_title">
+                    Compétition
+                </p>
+                <p class="club_register_price">110€</p>
+            </div>
+
+            <div class="club_register_card">
+                <p class="club_register_card_title">
+                    Dirigeants
+                </p>
+                <p class="club_register_price">70€</p>
+            </div>
+        </div>
+
+        <p class="club_register_payment_methods">Les modes de paiments suivants sont acceptés :</p>
+        <ul class="club_register_payment_methods_list">
+            <li class="club_register_payment_methods_list_item">- Chèques</li>
+            <li class="club_register_payment_methods_list_item">- Espèces</li>
+            <li class="club_register_payment_methods_list_item">- Chèques ANCV ou coupons sports</li>
+            <li class="club_register_payment_methods_list_item">- Virement (demander le RIB du club à l'adresse mail
+                suivante : <strong>famille.levag@sfr.fr</strong>)</li>
+        </ul>
+
+        <p>Pour tous ces types de paiment, merci de bien indiquer le prénom et le nom de la personne à inscrire.</p>
+
+        <p><strong>Un tarif préférentiel sera appliqué pour les licenciés de la saison 2020 - 2021</strong></p>
+    </section>
+
+    <section class="club_register_documents_section">
+        <h2 class="club_register_documents">Les documents à transmettre</h2>
+
+        <p>Avant de remplir le formulaire d'inscription, vous devez télécharger les documents ci-dessous et les
+            remplir.
+        </p>
+
+        <p>Vous pouvez également vous envoyer ces documents plus tard, en main propre au club ou par mail
+            à l'adresse <strong>club-inscription@sagc.fr</strong> en nous indiquant le prénom et le nom de
+            l'inscrit.
+        </p>
+
+        <p>L’inscription
+            ne sera validée et la licence prise sur le site de la FFRS que lorsque le dossier sera complet avec
+            Certificat Médical et Règlement.</p>
+
+        <div class="club_register_documents_card_container">
+            <div class="club_register_documents_card">
+                <p class="club_register_documents_card_consommers">
+                    Tous le monde
+                </p>
+                <p class="club_register_documents_card_title">
+                    Cetificat médical
+                </p>
+                <a href="#" class="club_register_documents_download">Télécharger ce document</a>
+            </div>
+
+            <div class="club_register_documents_card">
+                <p class="club_register_documents_card_consommers">
+                    Mineurs
+                </p>
+                <p class="club_register_documents_card_title">
+                    Dossier à remplir
+                </p>
+                <a href="#" class="club_register_documents_download">Télécharger ce dossier</a>
+            </div>
+
+            <div class="club_register_documents_card">
+                <p class="club_register_documents_card_consommers">
+                    Majeurs
+                </p>
+                <p class="club_register_documents_card_title">
+                    Dossier à remplir
+                </p>
+                <a href="#" class="club_register_documents_download">Télécharger ce dossier</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="club_register_form_section">
+        <h1 class="club_register_form_title">Formulaire d'inscription</h1>
+{{ form_start(form) }}
+        <div class="form_container">
+            <div class="form_yourself_step_container">
+                <div class="form_yourself_container">
+                    <div class="step_form_number_background">
+                        <p class="step_form_number">1</p>
+                    </div>
+                    <div class="form_content_container">
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label">Le prénom</label>
+
+                               {{ form_errors(form.prenom) }}
+                               {{ form_widget(form.prenom) }}
+{#                                <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                            </div>
+
+                            <div class="input_container">
+                                <label class="form_label">Le nom</label>
+                                {{ form_errors(form.nom) }}
+                               {{ form_widget(form.nom) }}
+{#                                <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label" for="gender-select">Genre</label>
+                                 {{ form_errors(form.genre) }}
+                               {{ form_widget(form.genre) }}
+{#                                <select name="gender" id="gender-select" class="medium-size form_select">#}
+{#                                    <option value="">Choisissez un genre</option>#}
+{#                                    <option value="man">Homme</option>#}
+{#                                    <option value="woman">Femme</option>#}
+{#                                </select>#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label">Ville de naissance</label>
+                                 {{ form_errors(form.lieuDeNaissance) }}
+                               {{ form_widget(form.lieuDeNaissance) }}
+{#                                <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                            </div>
+
+                            <div class="input_container">
+                                <label class="form_label">Département</label>
+                                 {{ form_errors(form.departementDeNaissance) }}
+                               {{ form_widget(form.departementDeNaissance) }}
+{#                                <input type="text" class="small-size form_input" placeholder="Répondez ici...">#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label">Adresse</label>
+                                {{ form_errors(form.adresse) }}
+                               {{ form_widget(form.adresse) }}
+{#                                <input type="text" placeholder="Répondez ici..." class="normal-size form_input">#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label">Ville</label>
+                                 {{ form_errors(form.ville) }}
+                               {{ form_widget(form.ville) }}
+{#                                <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                            </div>
+
+                            <div class="input_container">
+                                <label class="form_label">Code Postal</label>
+                                 {{ form_errors(form.codePostal) }}
+                               {{ form_widget(form.codePostal) }}
+{#                                <input type="text" class="small-size form_input" placeholder="Répondez ici...">#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label">La nationalité</label>
+                                 {{ form_errors(form.nationalite) }}
+                               {{ form_widget(form.nationalite) }}
+{#                                <input type="text" placeholder="Répondez ici..." class="small-size form_input">#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label">Date de Naissance</label>
+                                {{ form_errors(form.dateDeNaissance) }}
+                               {{ form_widget(form.dateDeNaissance) }}
+{#                                <input type="text" placeholder="Jour / Mois / Année" class="medium-size form_input">#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label" for="disciplined-select">La discipline</label>
+                                 {{ form_errors(form.discipline) }}
+                               {{ form_widget(form.discipline) }}
+{#                                <select name="disciplined" id="disciplined-select" class="normal-size form_select">#}
+{#                                    <option value="">Choisissez une discipline</option>#}
+{#                                    <option value=""></option>#}
+{#                                    <option value=""></option>#}
+{#                                </select>#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label">Adresse Email</label>
+                                {{ form_errors(form.email) }}
+                               {{ form_widget(form.email) }}
+{#                                <input type="email" placeholder="nom@exemple.com" class="normal-size form_input">#}
+                            </div>
+                        </div>
+
+                        <div class="flex_form_items">
+                            <div class="input_container">
+                                <label class="form_label">Numéro de téléphone</label>
+                                {{ form_errors(form.telephone) }}
+                               {{ form_widget(form.telephone) }}
+{#                                <input type="tel" placeholder="06 54 87 25 59" class="small-size form_input">#}
+                            </div>
+                        </div>
+
+{#                        <div class="flex_form_items">#}
+{#                            <div class="input_container">#}
+{#                                <label class="form_label">Photo d'identité</label>#}
+{#                                <input type="file" placeholder="Choisissez un fichier"#}
+{#                                       class="super-size form_input">#}
+{#                            </div>#}
+{#                        </div>#}
+                    </div>
+                </div>
+                <div class="step_container">
+                    <div class="step_content_container">
+                        <h2 class="step_content_title">Les étapes</h2>
+
+                        <div class="step_number_text_arrow_container">
+                            <div class="step_container_form_number_background">
+                                <p class="step_container_form_number">1</p>
+                            </div>
+                            <p class="step_form_text">Information sur le licencié</p>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M12 16a1 1 0 0 1-.707-.293L5.636 10.05A1 1 0 0 1 7.05 8.636l4.95 4.95 4.95-4.95a1 1 0 0 1 1.414 1.414l-5.657 5.657A1 1 0 0 1 12 16z" />
+                            </svg>
+                        </div>
+
+                        <div class="step_number_text_arrow_container">
+                            <div class="step_container_form_number_background">
+                                <p class="step_container_form_number">2</p>
+                            </div>
+                            <p class="step_form_text">Information sur le père</p>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M12 16a1 1 0 0 1-.707-.293L5.636 10.05A1 1 0 0 1 7.05 8.636l4.95 4.95 4.95-4.95a1 1 0 0 1 1.414 1.414l-5.657 5.657A1 1 0 0 1 12 16z" />
+                            </svg>
+                        </div>
+
+                        <div class="step_number_text_arrow_container">
+                            <div class="step_container_form_number_background">
+                                <p class="step_container_form_number">3</p>
+                            </div>
+                            <p class="step_form_text">Information sur la mère</p>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M12 16a1 1 0 0 1-.707-.293L5.636 10.05A1 1 0 0 1 7.05 8.636l4.95 4.95 4.95-4.95a1 1 0 0 1 1.414 1.414l-5.657 5.657A1 1 0 0 1 12 16z" />
+                            </svg>
+                        </div>
+
+                        <div class="step_number_text_arrow_container">
+                            <div class="step_container_form_number_background">
+                                <p class="step_container_form_number">4</p>
+                            </div>
+                            <p class="step_form_text">Accepatation des conditions</p>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M12 16a1 1 0 0 1-.707-.293L5.636 10.05A1 1 0 0 1 7.05 8.636l4.95 4.95 4.95-4.95a1 1 0 0 1 1.414 1.414l-5.657 5.657A1 1 0 0 1 12 16z" />
+                            </svg>
+                        </div>
+
+                        <div class="step_number_text_arrow_container">
+                            <div class="step_container_form_number_background">
+                                <p class="step_container_form_number">5</p>
+                            </div>
+                            <p class="step_form_text">Demande d'autorisation</p>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M12 16a1 1 0 0 1-.707-.293L5.636 10.05A1 1 0 0 1 7.05 8.636l4.95 4.95 4.95-4.95a1 1 0 0 1 1.414 1.414l-5.657 5.657A1 1 0 0 1 12 16z" />
+                            </svg>
+                        </div>
+
+                        <div class="step_number_text_arrow_container">
+                            <div class="step_container_form_number_background">
+                                <p class="step_container_form_number">6</p>
+                            </div>
+                            <p class="step_form_text">Transmission des documents</p>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                        d="M12 16a1 1 0 0 1-.707-.293L5.636 10.05A1 1 0 0 1 7.05 8.636l4.95 4.95 4.95-4.95a1 1 0 0 1 1.414 1.414l-5.657 5.657A1 1 0 0 1 12 16z" />
+                            </svg>
+                        </div>
+
+                        <div class="step_number_text_arrow_container">
+                            <div class="step_container_form_number_background">
+                                <p class="step_container_form_number">7</p>
+                            </div>
+                            <p class="step_form_text">Location de patins</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_father_container">
+                <div class="step_form_number_background">
+                    <p class="step_form_number">2</p>
+                </div>
+                <div class="form_content_container">
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">Le prénom du père</label>
+                             {{ form_errors(form.prenomDuPere) }}
+                               {{ form_widget(form.prenomDuPere) }}
+{#                            <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                        </div>
+
+                        <div class="input_container">
+                            <label class="form_label">Le nom du père</label>
+                             {{ form_errors(form.nomDupere) }}
+                               {{ form_widget(form.nomDupere) }}
+{#                            <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                        </div>
+                    </div>
+
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">Numéro de téléphone</label>
+                             {{ form_errors(form.telephoneDuPere) }}
+                               {{ form_widget(form.telephoneDuPere) }}
+{#                            <input type="tel" placeholder="06 54 87 25 59" class="small-size form_input">#}
+                        </div>
+
+                        <div class="input_container">
+                            <label class="form_label">Adresse</label>
+                             {{ form_errors(form.adresseDuPere) }}
+                               {{ form_widget(form.adresseDuPere) }}
+{#                            <input type="text" placeholder="Répondez ici..." class="normal-size form_input">#}
+                        </div>
+                    </div>
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">Code postal</label>
+                             {{ form_errors(form.codePostalDuPere) }}
+                               {{ form_widget(form.codePostalDuPere) }}
+{#                            <input type="tel" placeholder="06 54 87 25 59" class="small-size form_input">#}
+                        </div>
+
+                        <div class="input_container">
+                            <label class="form_label">Ville</label>
+                             {{ form_errors(form.villeDuPere) }}
+                               {{ form_widget(form.villeDuPere) }}
+{#                            <input type="text" placeholder="Répondez ici..." class="normal-size form_input">#}
+                        </div>
+                    </div>
+
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">La profession du père</label>
+                             {{ form_errors(form.professionDuPere) }}
+                               {{ form_widget(form.professionDuPere) }}
+{#                            <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_mother_container">
+                <div class="step_form_number_background">
+                    <p class="step_form_number">3</p>
+                </div>
+                <div class="form_content_container">
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">Le prénom de la mère</label>
+                             {{ form_errors(form.prenomDeLaMere) }}
+                               {{ form_widget(form.prenomDeLaMere) }}
+{#                            <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                        </div>
+
+                        <div class="input_container">
+                            <label class="form_label">Le nom de la mère</label>
+                             {{ form_errors(form.nomDeLaMere) }}
+                               {{ form_widget(form.nomDeLaMere) }}
+{#                            <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                        </div>
+                    </div>
+
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">Numéro de téléphone</label>
+                             {{ form_errors(form.telephoneDeLaMere) }}
+                               {{ form_widget(form.telephoneDeLaMere) }}
+{#                            <input type="tel" placeholder="06 54 87 25 59" class="small-size form_input">#}
+                        </div>
+
+                        <div class="input_container">
+                            <label class="form_label">Adresse</label>
+                             {{ form_errors(form.adresseDeLaMere) }}
+                               {{ form_widget(form.adresseDeLaMere) }}
+{#                            <input type="text" placeholder="Répondez ici..." class="normal-size form_input">#}
+                        </div>
+                    </div>
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">Code postal</label>
+                             {{ form_errors(form.codePostalDeLaMere) }}
+                               {{ form_widget(form.codePostalDeLaMere) }}
+{#                            <input type="tel" placeholder="06 54 87 25 59" class="small-size form_input">#}
+                        </div>
+
+                        <div class="input_container">
+                            <label class="form_label">Ville</label>
+                             {{ form_errors(form.villeDeLaMere) }}
+                               {{ form_widget(form.villeDeLaMere) }}
+{#                            <input type="text" placeholder="Répondez ici..." class="normal-size form_input">#}
+                        </div>
+                    </div>
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">La profession de la mère</label>
+                             {{ form_errors(form.professionDeLaMere) }}
+                               {{ form_widget(form.professionDeLaMere) }}
+{#                            <input type="text" class="normal-size form_input" placeholder="Répondez ici...">#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_rules_container">
+                <div class="step_form_number_background">
+                    <p class="step_form_number">4</p>
+                </div>
+                <div class="form_content_container" id="rules-form-container">
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            Je soussigné, parent ou tuteur légal de l'adhérent déclare avoir pris connaissance des
+                            modalités de pratique et m'engage à les respecter.
+                        </p>
+     {% for child in form.modaliteDePratique %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules1">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules1">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            Je soussigné parent ou représentant légal de l'adhérent, autorise la prise de vues et la
+                            publication d'image sur laquelle mon enfant apparaît sur tout support et sans limitation
+                            de durée et de contrepartie financière. Je reconnais avoir pris connaissance de
+                            l'utilisation qui en est faite dans le cadre de la publication, de la promotion et de la
+                            publicité à l'usage exclusif du SAGC Rink Hockey. Je reconnais également que les
+                            utilisations éventuelles ne peuvent porter atteinte à ma vie privée et, plus
+                            généralement, ne sont pas de nature à lui nuire ni à lui causer un quelconque préjudice.
+                            (selon article 226-1 à 226-8 du Code civil disponible sur le site du club)
+                        </p>
+{% for child in form.autorisationPriseDeVue %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules2">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules2">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            Je soussigné parent ou représentant légal de l'adhérent, autorise mon enfant à
+                            participer aux activités proposées au SAGC Rink Hockey
+                        </p>
+{% for child in form.autorisationActiviteSagc %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules3">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules3">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+
+
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            Je soussigné parent ou représentant légal de l'adhérent, déclare avoir pris connaissance
+                            par l'intermédiaire de mon club des informations relatives à la notice d'assurance
+                            "dommages corporels" de base et des garanties complémentaires proposées par la FFRS. Je
+                            déclare adhérer à l'assurance "garantie de dommages corporels" proposée par la FFRS
+                            Garanties de base individuel accident contrat n°101 625 000. Je m'engage à établir
+                            moi-même les formalités d'adhésion auprès de l'assureur si je souhaite souscrire aux
+                            garanties complémentaires.
+                        </p>
+{% for child in form.connaissanceInfoNoticeAssuranceDommageCorpo %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules4">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules4">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_rules_container">
+                <div class="step_form_number_background">
+                    <p class="step_form_number">5</p>
+                </div>
+                <div class="form_content_container" id="rules-form-container">
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            J'autorise mon enfant à quitter seul le lieu des activités à la fin de celles-ci
+                        </p>
+{% for child in form.autorisationDeQuitterLesLieuxEnFinActivite %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules5">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules5">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            J'autorise sous réserve de spécification sur le certificat médical, mon enfant à
+                            pratiquer en compétition dans la catégorie supérieure
+                        </p>
+{% for child in form.autorisationPratiqueANiveauSup %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules6">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules6">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            J'autorise le responsable de l'activité à prendre à l'égard de mon enfant, toutes les
+                            dispositions médicales utiles en cas d'accident et à le faire hospitaliser si nécessaire
+                        </p>
+{% for child in form.autorisationPriseEnChargeMedicaleAccident %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules7">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules7">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+
+
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            Je m'engage à participer aux déplacements et aux compétitions du groupe ou de l'équipe
+                        </p>
+{% for child in form.engagementDeplacementCompetition %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules8">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules8">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            J'atteste avoir pris connaissance du règlement intérieur, des projets clubs, éducatifs
+                            et sportifs ainsi que la charte de club (disponible sur le site du club). J'en accepte
+                            les règles et m'engage à les respecter.
+                        </p>
+{% for child in form.connaissanceReglementInterieur %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules9">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules9">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+
+                    <div class="form_rules_content_container">
+                        <p class="form_radio_text">
+                            Je certifie sur l'honneur l'exactitude des renseignements et autorisations et je demande
+                            l'adhésion au SAGC Rink Hockey et une licence FFRS
+                        </p>
+{% for child in form.certificationSurHonneurExcactitdueRenseignement %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="j'accepte" name="rules10">#}
+{#                            <label class="rules_input_label">J'accepte</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_radio_container">#}
+{#                            <input type="radio" value="je n'accepte pas" name="rules10">#}
+{#                            <label class="rules_input_label">Je n'accepte pas</label>#}
+{#                        </div>#}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_documents_container">
+                <div class="step_form_number_background">
+                    <p class="step_form_number">6</p>
+                </div>
+
+                <div class="form_content_container">
+                <p>Type de fichiers: PDF/PNG/JPEG</p>
+                    <div class="input_container">
+                        <label class="form_label">Photo d'identité</label>
+                        {{ form_errors(form.photoIdentite) }}
+                        {{ form_widget(form.photoIdentite) }}
+{#                        <input type="file" class="super-size form_input" placeholder="Choisissez un fichier">#}
+                    </div>
+
+                    <div class="input_container">
+                        <label class="form_label">Certificat médical</label>
+                        {{ form_errors(form.certificatMedical) }}
+                        {{ form_widget(form.certificatMedical) }}
+
+{#                        <input type="file" class="super-size form_input" placeholder="Choisissez un fichier">#}
+                    </div>
+
+                    <div class="input_container">
+                        <label class="form_label">Questionnaire Santé Sport</label>
+                         {{ form_errors(form.questionnaireSanteSport) }}
+                        {{ form_widget(form.questionnaireSanteSport) }}
+{#                        <input type="file" class="super-size form_input" placeholder="Choisissez un fichier">#}
+                    </div>
+
+                    <div class="input_container">
+                        <label class="form_label">Attestation Santé Sport</label>
+                         {{ form_errors(form.attestationSanteSport) }}
+                        {{ form_widget(form.attestationSanteSport) }}
+{#                        <input type="file" class="super-size form_input" placeholder="Choisissez un fichier">#}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_location_container">
+                <div class="step_form_number_background">
+                    <p class="step_form_number">7</p>
+                </div>
+
+                <div class="form_content_container">
+                    <div class="form_location_content_container">
+                        <p class="form_radio_text">
+                            Avez-vous besoin de louer des patins ?
+                        </p>
+{% for child in form.locationDePatin %}
+            <div class="input_radio_container">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null) -}}
+{#                <span class="checkmark"></span>#}
+            </div>
+        {% endfor %}
+{#                        <div class="input_location_container">#}
+{#                            <input type="radio" value="oui" name="location">#}
+{#                            <label class="location_input_label">Oui</label>#}
+{#                        </div>#}
+
+{#                        <div class="input_location_container">#}
+{#                            <input type="radio" value="non" name="location">#}
+{#                            <label class="location_input_label">Non</label>#}
+{#                        </div>#}
+
+                        <div class="flex_form_items" id="pointure-container">
+                            <div class="input_container">
+                                <label class="form_label" for="pointure-select">La pointure des patins</label>
+                                 {{ form_errors(form.pointureDesPatins) }}
+                               {{ form_widget(form.pointureDesPatins) }}
+{#                                <select name="gender" id="pointure-select" class="medium-size form_select">#}
+{#                                    <option value="">Choisissez une pointures</option>#}
+{#                                    <option value="pointure-38">38</option>#}
+{#                                    <option value="pointure-40">40</option>#}
+{#                                    <option value="pointure-42">42</option>#}
+{#                                </select>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" style="border: none" class="button" id="submit-form-btn">Envoyer ma demande d'inscription</button>
+        </div>
+    </section>
+ {{ form_end(form) }}
+
+
+    {{ include('_includes/Front/footer.html.twig') }}
+    <script src="{{ asset('Front/JS/burger-menu.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href={{ asset('Front/CSS/inscription/inscription.css')}} />
+<link rel="stylesheet" href="{{ asset('Front/CSS/inscription/inscription-responsive.css') }}" />
+{% endblock %}

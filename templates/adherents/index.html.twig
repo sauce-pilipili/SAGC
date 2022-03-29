@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adherents index{% endblock %}
+
+{% block body %}
+    <h1>Adherents index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Genre</th>
+                <th>LieuDeNaissance</th>
+                <th>DepartementDeNaissance</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>CodePostal</th>
+                <th>Nationalite</th>
+                <th>DateDeNaissance</th>
+                <th>Discipline</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>PhotoIdentite</th>
+                <th>NomDupere</th>
+                <th>PrenomDuPere</th>
+                <th>TelephoneDuPere</th>
+                <th>AdresseDuPere</th>
+                <th>VilleDuPere</th>
+                <th>CodePostalDuPere</th>
+                <th>NomDeLaMere</th>
+                <th>PrenomDeLaMere</th>
+                <th>TelephoneDeLaMere</th>
+                <th>AdresseDeLaMere</th>
+                <th>VilleDeLaMere</th>
+                <th>CodePostalDeLaMere</th>
+                <th>ProfessionDuPere</th>
+                <th>ProfessionDeLaMere</th>
+                <th>ModaliteDePratique</th>
+                <th>AutorisationPriseDeVue</th>
+                <th>AutorisationActiviteSagc</th>
+                <th>ConnaissanceInfoNoticeAssuranceDommageCorpo</th>
+                <th>AutorisationDeQuitterLesLieuxEnFinActivité</th>
+                <th>AutorisationPratiqueANiveauSup</th>
+                <th>AutorisationPriseEnChargeMedicaleAccident</th>
+                <th>EngagementDeplacementCompetition</th>
+                <th>ConnaissanceReglementInterieur</th>
+                <th>CertificationSurHonneurExcactitdueRenseignement</th>
+                <th>CertificatMedical</th>
+                <th>QuestionnaireSanteSport</th>
+                <th>AttestationSanteSport</th>
+                <th>LocationDePatin</th>
+                <th>PointureDesPatins</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for adherent in adherents %}
+            <tr>
+                <td>{{ adherent.id }}</td>
+                <td>{{ adherent.nom }}</td>
+                <td>{{ adherent.prénom }}</td>
+                <td>{{ adherent.genre ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.lieuDeNaissance }}</td>
+                <td>{{ adherent.departementDeNaissance }}</td>
+                <td>{{ adherent.adresse }}</td>
+                <td>{{ adherent.ville }}</td>
+                <td>{{ adherent.codePostal }}</td>
+                <td>{{ adherent.nationalite }}</td>
+                <td>{{ adherent.dateDeNaissance ? adherent.dateDeNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ adherent.discipline }}</td>
+                <td>{{ adherent.email }}</td>
+                <td>{{ adherent.telephone }}</td>
+                <td>{{ adherent.photoIdentite }}</td>
+                <td>{{ adherent.nomDupere }}</td>
+                <td>{{ adherent.prenomDuPere }}</td>
+                <td>{{ adherent.telephoneDuPere }}</td>
+                <td>{{ adherent.adresseDuPere }}</td>
+                <td>{{ adherent.villeDuPere }}</td>
+                <td>{{ adherent.codePostalDuPere }}</td>
+                <td>{{ adherent.nomDeLaMere }}</td>
+                <td>{{ adherent.prenomDeLaMere }}</td>
+                <td>{{ adherent.telephoneDeLaMere }}</td>
+                <td>{{ adherent.adresseDeLaMere }}</td>
+                <td>{{ adherent.villeDeLaMere }}</td>
+                <td>{{ adherent.codePostalDeLaMere }}</td>
+                <td>{{ adherent.professionDuPere }}</td>
+                <td>{{ adherent.professionDeLaMere }}</td>
+                <td>{{ adherent.modaliteDePratique ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.autorisationPriseDeVue ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.autorisationActiviteSagc ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.connaissanceInfoNoticeAssuranceDommageCorpo ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.autorisationDeQuitterLesLieuxEnFinActivité ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.autorisationPratiqueANiveauSup ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.autorisationPriseEnChargeMedicaleAccident ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.engagementDeplacementCompetition ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.connaissanceReglementInterieur ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.certificationSurHonneurExcactitdueRenseignement ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.certificatMedical }}</td>
+                <td>{{ adherent.questionnaireSanteSport }}</td>
+                <td>{{ adherent.attestationSanteSport }}</td>
+                <td>{{ adherent.locationDePatin ? 'Yes' : 'No' }}</td>
+                <td>{{ adherent.pointureDesPatins }}</td>
+                <td>
+                    <a href="{{ path('app_adherents_show', {'id': adherent.id}) }}">show</a>
+                    <a href="{{ path('app_adherents_edit', {'id': adherent.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="45">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_adherents_new') }}">Create new</a>
+{% endblock %}

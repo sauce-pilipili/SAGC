@@ -1,0 +1,84 @@
+{{ form_start(form, {'attr':{'class':'form'}}) }}
+<div class="row">
+    <label class="label" for="titre">
+        <p>Choisissez un nom d'équipe adverse</p>
+    </label>
+    {{ form_errors(form.nom) }}
+    {{ form_widget(form.nom) }}
+</div>
+
+
+<div class="row ">
+    <label class="label" for="image">
+        <h2>Logo de l'équipe</h2>
+    </label>
+    <div class="upload-1">
+        <div class="bloc-inputfile">
+            {{ form_row(form.logo,{'attr': {'class': 'inputfile', 'onchange':"handleFilesAvant(files)",'id' : 'upload', 'multiple name': 'file'}}) }}
+            <div class="preview-image">
+                <label for="upload">
+                <span id="previewAvant">
+                    {% if adversaire.logo != null %}
+                        {% if app.request.attributes.get('_route') == 'app_adversaires_edit' %}
+                            <img class="image-preview" src="{{ asset('/uploads/'~adversaire.logo) }}" alt=""
+                                 style="width: 350px">
+                        {% endif %}
+                    {% endif %}
+                </span>
+                </label>
+            </div>
+
+            <span id="file-select">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24" width="24"><path
+                    xmlns="http://www.w3.org/2000/svg"
+                    d="M12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11V5C11 4.44772 11.4477 4 12 4Z"
+                    fill="#0D0D0D"></path></svg>
+     {% if app.request.attributes.get('_route') == 'app_adversaires_new' %}Ajouter un logo
+     {% endif %}{% if app.request.attributes.get('_route') == 'app_adversaires_edit' %}Modifier le logo {% endif %}
+        </span>
+        </div>
+    </div>
+</div>
+<div>
+    <button class="bouton-1" type="submit">
+        <span>Enregistrer</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14">
+            <path id="chevron-down"
+                  d="M.293,7.707a1,1,0,0,0,1.414,0L7,2.414l5.293,5.293a1,1,0,0,0,1.414-1.414l-6-6a1,1,0,0,0-1.414,0l-6,6A1,1,0,0,0,.293,7.707Z"
+                  transform="translate(8) rotate(90)"/>
+        </svg>
+    </button>
+</div>
+{{ form_end(form) }}
+
+<script>
+    $('#file-select').click(function () {
+        $('.upload-1 input').click();
+    });
+    previewAvant = document.getElementById("previewAvant");
+
+    function handleFilesAvant(files,) {
+        var imageType = /^image\//;
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            if (!imageType.test(file.type)) {
+                alert("veuillez sélectionner une image");
+            } else {
+                if (i == 0) {
+                    previewAvant.innerHTML = '';
+                }
+                var img = document.createElement("img");
+                img.classList.add("image-preview");
+                img.file = file;
+                previewAvant.appendChild(img);
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                })(img);
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+</script>

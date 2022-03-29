@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+{% block title %}SAGC -nos équipes{% endblock%}
+{% block body %}
+{{ include('_includes/Front/navigation.html.twig') }}
+    <main>
+        <section class="our_teams_section">
+            <h1 class="our_teams_title">
+                NOS EQUIPES
+            </h1>
+
+            <div class="our_teams_top_content">
+
+                <div class="container">
+                    <div class="overlay">
+                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
+                        <div class="middle">
+                            <a href="#" class="white_button">
+                                <div class="white_button_span">Voir l'équipe</div>
+                            </a>
+                        </div>
+                    </div>
+                    <h2 class="teams"> Nationale 1 </h2>
+                </div>
+
+                <div class="container">
+                    <div class="overlay">
+                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
+                        <div class="middle">
+                            <a href="#" class="white_button">
+                                <div class="white_button_span">Voir l'équipe</div>
+                            </a>
+                        </div>
+                    </div>
+                    <h2 class="teams"> Nationale 2 </h2>
+                </div>
+
+                <div class="container">
+                    <div class="overlay">
+                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
+                        <div class="middle">
+                            <a href="#" class="white_button">
+                                <div class="white_button_span">Voir l'équipe</div>
+                            </a>
+                        </div>
+                    </div>
+                    <h2 class="teams"> Ecole de patinage </h2>
+                </div>
+            </div>
+
+            <div class="our_teams_bottom_content">
+
+                <div class="container">
+                    <div class="overlay">
+                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
+                        <div class="middle">
+                            <a href="#" class="white_button">
+                                <div class="white_button_span">Voir l'équipe</div>
+                            </a>
+                        </div>
+                    </div>
+                    <h2 class="teams"> Jeunes </h2>
+
+                </div>
+
+                <div class="container">
+                    <div class="overlay">
+                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
+                        <div class="middle">
+                            <a href="#" class="white_button">
+                                <div class="white_button_span">Voir l'équipe</div>
+                            </a>
+                        </div>
+                    </div>
+                    <h2 class="teams"> Loisirs adultes </h2>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="news_section">
+            <div class="news_title_container">
+                <span class="news_stroke_title">les actualites</span>
+                <h2 class="news_title">Les actualités du SAGC</h2>
+            </div>
+
+            <div class="news_cards_container">
+                <img src="{{ asset('Front/IMG/Dots/Grille de répétition 3.png') }}" alt="Grille de répétition décorative" class="news_dot" />
+                {% for article in articles %}
+                    <div class="news_card">
+                        <img src="{{ asset('uploads/'~article.imageEnAvant) }}" alt="{{ article.legendePhotoEnAvant }}" class="news_card_img" />
+                        <div class="news_text_container">
+                            <h5 class="news_article_category">{{ article.categorie.name }}</h5>
+                            <h5 class="news_article_title">{{ article.title }}</h5>
+                            <p class="news_article_text">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                Temporibus voluptatem molestiae, distinctio molestias
+                                excepturi consequuntur a illo officiis veritatis harum! Maxime
+                                magnam atque corporis qui earum eligendi placeat provident
+                                molestiae?
+                            </p>
+                            <a href="{{ path('app_sagc_article', {slug: article.slug}) }}" class="news_btn">Lire l'article</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+
+{{ include('_includes/Front/footer.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('Front/CSS/nos-equipes-page/nos-equipes-page.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/CSS/nos-equipes-page/nos-equipes-page-responsive.css') }}">
+{% endblock %}

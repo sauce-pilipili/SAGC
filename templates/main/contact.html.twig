@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block title %}SAGC -contact{% endblock %}
+{% block body %}
+    {{ include('_includes/Front/navigation.html.twig') }}
+    <main>
+        <section class="contact_us_text_section">
+            <h3 class="contact_us_subtitle">Le club</h3>
+            <h1 class="contact_us_title">CONTACTEZ-NOUS</h1>
+            <p class="contact_us_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corporis
+                reprehenderit, dolore nemo illo, rerum et perspiciatis facere esse quas soluta repellat optio quos saepe
+                corrupti atque? Ea, officia quod?</p>
+        </section>
+
+        <section class="contact_us_form_section">
+            <div class="contact_us_form_content_container">
+                <form name="form" action="{{ path('app_contact') }}" method="post" class="contact_us_form">
+
+                        {% for message in app.flashes('success') %}
+                            <div class="greenalert">
+                                <div class="close" id="close" onclick="$('.fas').parents('.greenalert').remove();"><i
+                                            class="fas fa-times"></i></div>
+                                <div class="success-alert">
+                                    <p style="color: #72b572">{{ message }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% for message in app.flashes('danger') %}
+                            <div class="redalert">
+                                <div class="close" id="close" onclick="$('.fas').parents('.redalert').remove();"><i
+                                            class="fas fa-times"></i></div>
+                                <div class="danger-alert">
+                                    <p style="color: #ad1212">{{ message }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">Prénom</label>
+                            <input name="prenom" type="text" required placeholder="Répondez ici..." class="form_input">
+                        </div>
+
+                        <div class="input_container">
+                            <label class="form_label">Nom</label>
+                            <input name="nom" type="text" required placeholder="Répondez ici..." class="form_input">
+                        </div>
+                    </div>
+
+                    <div class="input_container">
+                        <label class="form_label">Adresse Email</label>
+                        <input name="email" type="mail" required placeholder="nom@exemple.com" class="form_input">
+                    </div>
+
+                    <div class="input_container" id="request_container">
+                        <label class="form_label">Votre demande</label>
+                        <textarea name="request" required id="request" cols="30" rows="10"
+                                  placeholder="Répondez ici..."></textarea>
+                    </div>
+
+                    <button style="border: none;background-color: transparent" class="button" type="submit" >Envoyer ma demande</button>
+                </form>
+
+                <img src="" alt="Emplacement du club sur google Maps" class="contact_us_picture">
+            </div>
+        </section>
+    </main>
+    {{ include('_includes/Front/footer.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{(asset('Front/CSS/contactez-nous/contactez-nous.css')) }}">
+    <link rel="stylesheet" href=" {{ (asset('Front/CSS/contactez-nous/contactez-nous-reponsive.css')) }}"
+
+{% endblock %}

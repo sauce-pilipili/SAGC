@@ -1,0 +1,50 @@
+{% extends 'Back.html.twig' %}
+
+{% block title %}Les equipes{% endblock %}
+
+{% block body %}
+    {{ include('_includes/Back/navigation.html.twig') }}
+    <section class="section-content">
+        <div class="content">
+            <div class="content-title">
+                <h1>Les équipes</h1>
+                <form class="form-search" action="">
+                    <input class="form-search_input" type="text" name="" onkeyup="ajaxSearch(this.value)" id="" placeholder="Rechercher un article">
+                    <input class="form-search_button" type="button" value="">
+                </form>
+            </div>
+            <div class="content-table">
+                <table class="content-table_article">
+                    <tbody id="body-list">
+                    {{ include('equipes_categories/_contentEquipeCategorite.html.twig') }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    {#requete ajax#}
+    <script>
+        function ajaxSearch(value,roles){
+           $.ajax({
+               url:"",
+               type: "GET",
+               data:{
+                   'text':value,
+                   'roles':roles
+               },
+               success : function (data){
+                  console.log( data.ok);
+                   $("#body-list").html(data.content)
+               }
+           })
+        }
+    </script>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('Back/js/Search.js') }}"></script>
+{% endblock %}
+
+

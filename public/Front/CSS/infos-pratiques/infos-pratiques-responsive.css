@@ -71,7 +71,7 @@
   }
 
   .footer_button {
-    padding: 0 34px;
+    padding: 0px 34px;
     font-size: 15px;
   }
 
@@ -148,7 +148,7 @@
       opacity: 0;
     }
     to {
-      top: 0;
+      top: 0%;
       opacity: 1;
     }
   }
@@ -158,13 +158,13 @@
       opacity: 0;
     }
     to {
-      top: 0;
+      top: 0%;
       opacity: 1;
     }
   }
   @keyframes slideBottom {
     from {
-      top: 0;
+      top: 0%;
       opacity: 1;
     }
     to {
@@ -174,7 +174,7 @@
   }
   @-webkit-keyframes slideTop {
     from {
-      top: 0;
+      top: 0%;
       opacity: 1;
     }
     to {

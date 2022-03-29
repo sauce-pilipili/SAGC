@@ -309,12 +309,18 @@ textarea {
 }
 
 .bloc-inputfile {
-    height: 150px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
     border: 1px dotted;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+}
+.image-preview{
+    width: 250px;
 }
 
 .inputfiledoc + label {

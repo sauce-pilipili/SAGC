@@ -221,6 +221,7 @@ nav svg {
 .news_cards_container {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 53px;
 }

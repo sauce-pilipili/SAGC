@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+{% block title %}SAGC -club{% endblock %}
+{% block body %}
+    {{ include('_includes/Front/navigation.html.twig') }}
+    <header id="presentation-header">
+        <img src="{{ asset('Front/IMG/Pictures/image 43.png') }}" alt="Photo de joueurs" class="header_img" />
+        <div class="header_text_container">
+            <h3 class="presentation_subtitle">Le club</h3>
+            <h1 class="presentation_title">PRESENTATION</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="presentation_section">
+            <div class="left_content_container">
+                <div class="presentation_text_container">
+                    <h2 class="presentation_content_title">L'histoire du club</h2>
+                    <p class="presentation_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Explicabo ab
+                        quidem quia consectetur atque ratione voluptates architecto in cumque consequuntur vero hic
+                        debitis, libero repellat, assumenda mollitia sit, similique molestias.</p>
+
+                    <p class="presentation_content_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad
+                        commodi
+                        itaque laboriosam ea praesentium, architecto placeat minus mollitia. Natus suscipit quas
+                        excepturi iusto iste voluptate. Totam a cumque provident inventore?</p>
+                </div>
+
+                <img src="" alt="" class="left_content_img">
+            </div>
+
+            <div class="right_content_container">
+                <div class="presentation_text_container">
+                    <h2 class="presentation_content_title">Presentation du club</h2>
+                    <p class="presentation_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Explicabo
+                        ab
+                        quidem quia consectetur atque ratione voluptates architecto in cumque consequuntur vero hic
+                        debitis, libero repellat, assumenda mollitia sit, similique molestias.</p>
+
+                    <p class="presentation_content_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad
+                        commodi
+                        itaque laboriosam ea praesentium, architecto placeat minus mollitia. Natus suscipit quas
+                        excepturi iusto iste voluptate. Totam a cumque provident inventore?</p>
+                </div>
+
+                <img src="" alt="" class="right_content_img">
+            </div>
+
+            <div class="left_content_container">
+                <div class="presentation_text_container">
+                    <h2 class="presentation_content_title">L'organisation</h2>
+
+                    <p class="presentation_content_text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Explicabo
+                        ab
+                        quidem quia consectetur atque ratione voluptates architecto in cumque consequuntur vero hic
+                        debitis, libero repellat, assumenda mollitia sit, similique molestias.</p>
+
+                    <p class="presentation_content_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad
+                        commodi
+                        itaque laboriosam ea praesentium, architecto placeat minus mollitia. Natus suscipit quas
+                        excepturi iusto iste voluptate. Totam a cumque provident inventore?</p>
+
+                    <a href="#" class="button">Voir l'organigramme</a>
+                </div>
+
+                <img src="" alt="" class="left_content_img">
+            </div>
+        </section>
+
+
+        <section class="carousel_picture_section">
+            <img src="" alt="" class="carousel_picture">
+            <div class="carousel_dot_container">
+                <span class="carousel_dot_active"></span>
+                <span class="carousel_dot"></span>
+                <span class="carousel_dot"></span>
+                <span class="carousel_dot"></span>
+                <span class="carousel_dot"></span>
+            </div>
+        </section>
+    </main>
+
+    {{ include('_includes/Front/footer.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{(asset('Front/CSS/le-club-presentation/le-club-presentation.css')) }}">
+    <link rel="stylesheet" href=" {{ (asset('Front/CSS/le-club-presentation/le-club-presentation-responsive.css')) }}"
+
+{% endblock %}

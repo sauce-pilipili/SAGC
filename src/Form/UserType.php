@@ -41,10 +41,10 @@ class UserType extends AbstractType
             ->add('roles', ChoiceType::class, ['choices' =>
                 [
                     'Administrateur' => 'ROLE_ADMIN',
-                    'Adhérent' => 'ROLE_ADHERENT',
+//                    'Adhérent' => 'ROLE_ADHERENT',
                     'Gestionnaire de la boutique' => 'ROLE_GESTIONNAIRE',
                     'Responsable d\'équipe' => 'ROLE_RESPONSABLE',
-                    'Joueurs' => 'ROLE_JOUEUR',
+//                    'Joueurs' => 'ROLE_JOUEUR',
                 ],
                 'mapped'=>false,
                 'label'=> false,

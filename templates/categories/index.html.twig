@@ -9,7 +9,7 @@
             <div class="content-title">
                 <h1>Les articles</h1>
                 <form class="form-search" action="">
-                    <input class="form-search_input" type="text" name="" id="" placeholder="Rechercher un article">
+                    <input class="form-search_input" type="text" name="" onkeyup="ajaxSearch(this.value)" id="" placeholder="Rechercher un article">
                     <input class="form-search_button" type="button" value="">
                 </form>
             </div>
@@ -22,6 +22,8 @@
             </div>
         </div>
     </section>
+{% endblock %}
 
-
+{% block javascripts %}
+<script src="{{ asset('Back/js/Search.js') }}"></script>
 {% endblock %}

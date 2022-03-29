@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+{% block title %}SAGC -prestations{% endblock %}
+{% block body %}
+    {{ include('_includes/Front/navigation.html.twig') }}
+    <main>
+        <section class="services_text_cars_section">
+            <h3 class="services_subtitle">Espace Pro</h3>
+            <h1 class="services_title">NOS PRESTATIONS</h1>
+            <p class="services_text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis cumque voluptas
+                laboriosam ipsum quis delectus nemo quod temporibus vel ut ex a quia fuga consectetur vitae laudantium,
+                cum quaerat corporis!</p>
+
+            <div class="services_cards_container">
+                <div class="services_card">
+                    <h3 class="services_card_number">Prestation n°1</h3>
+                    <h2 class="services_card_price">... €</h2>
+                    <p class="services_card_text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste
+                        voluptate quos sed cum. Officiis fuga numquam, accusantium soluta doloribus a inventore
+                        cupiditate voluptatum dolor qui. Veniam labore laborum eum voluptatibus.</p>
+
+                    <ul class="services_card_list">
+                        <li class="services_card_list_item">- At vero eos et accusam</li>
+                        <li class="services_card_list_item">- Sanctus est Lorem ipsum dolor sit amet</li>
+                    </ul>
+                </div>
+
+                <div class="services_card">
+                    <h3 class="services_card_number">Prestation n°2</h3>
+                    <h2 class="services_card_price">... €</h2>
+                    <p class="services_card_text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste
+                        voluptate quos sed cum. Officiis fuga numquam, accusantium soluta doloribus a inventore
+                        cupiditate voluptatum dolor qui. Veniam labore laborum eum voluptatibus.</p>
+
+                    <ul class="services_card_list">
+                        <li class="services_card_list_item">- At vero eos et accusam</li>
+                        <li class="services_card_list_item">- Sanctus est Lorem ipsum dolor sit amet</li>
+                    </ul>
+                </div>
+
+                <div class="services_card">
+                    <h3 class="services_card_number">Prestation n°3</h3>
+                    <h2 class="services_card_price">... €</h2>
+                    <p class="services_card_text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste
+                        voluptate quos sed cum. Officiis fuga numquam, accusantium soluta doloribus a inventore
+                        cupiditate voluptatum dolor qui. Veniam labore laborum eum voluptatibus.</p>
+
+                    <ul class="services_card_list">
+                        <li class="services_card_list_item">- At vero eos et accusam</li>
+                        <li class="services_card_list_item">- Sanctus est Lorem ipsum dolor sit amet</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="services_form_section">
+            <div class="form_container">
+                <h3 class="services_form_title">Contactez-nous</h3>
+                <div class="flex_form_items">
+                    <div class="input_container">
+                        <label class="form_label">Votre prénom</label>
+                        <input type="text" class="normal-size form_input" placeholder="Répondez ici...">
+                    </div>
+
+                    <div class="input_container">
+                        <label class="form_label">Votre Nom</label>
+                        <input type="text" class="normal-size form_input" placeholder="Répondez ici...">
+                    </div>
+                </div>
+
+                <div class="input_container">
+                    <label class="form_label">Votre Nom</label>
+                    <input type="text" class="normal-size form_input" placeholder="Répondez ici...">
+                </div>
+
+                <div class="input_container" id="request_container">
+                    <label class="form_label">Votre demande</label>
+                    <textarea name="request" id="request" cols="30" rows="10" placeholder="Répondez ici..."></textarea>
+                </div>
+
+                <a href="#" class="button">Envoyer ma demande</a>
+            </div>
+        </section>
+    </main>
+    {{ include('_includes/Front/footer.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href=" {{ (asset('Front/CSS/prestastions/prestations.css')) }}">
+    <link rel="stylesheet" href="{{(asset('Front/CSS/prestastions/prestations-responsive.css')) }}">
+
+{% endblock %}

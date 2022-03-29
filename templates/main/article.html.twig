@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block title %}SAGC -article{% endblock %}
+{% block body %}
+    {% block meta %}<meta name="descritpion" content="{{ article.metaDescription }}" />
+        {% endblock %}
+    {{ include('_includes/Front/navigation.html.twig') }}
+    <header>
+        <img src="{{ asset('uploads/'~article.imageEnAvant) }}" alt="{{ article.legendePhotoEnAvant }}" class="article_header_picture">
+    </header>
+
+    <main>
+        <section class="article_text_section">
+            <h3 class="article_categorie">{{ article.categorie }}</h3>
+            <h1 class="article_title">{{ article.title }}</h1>
+
+            {{ article.content|raw }}
+
+            <img src="{{ asset('uploads/'~article.imageEnAvant) }}" alt="{{ article.legendePhotoEnAvant }}" class="article_header_picture">
+        </section>
+
+        <section class="news_cards_section">
+
+            <h1 class="news_card_title">Les articles similaires</h1>
+            <div class="news_cards_container">
+                {% for article in articles %}
+                    <div class="news_card">
+                        <img src="{{ asset('uploads/'~article.imageEnAvant) }}" alt="{{ article.legendePhotoEnAvant }}" class="news_card_img" />
+                        <div class="news_text_container">
+                            <h5 class="news_article_category">{{ article.categorie.name }}</h5>
+                            <h5 class="news_article_title">{{ article.title }}</h5>
+                            <p class="news_article_text">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                Temporibus voluptatem molestiae, distinctio molestias
+                                excepturi consequuntur a illo officiis veritatis harum! Maxime
+                                magnam atque corporis qui earum eligendi placeat provident
+                                molestiae?
+                            </p>
+                            <a href="{{ path('app_sagc_article', {slug: article.slug}) }}" class="news_btn">Lire l'article</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    {{ include('_includes/Front/footer.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{(asset('Front/CSS/article/article.css')) }}">
+    <link rel="stylesheet" href=" {{ (asset('Front/CSS/article/article-responsive.css')) }}"
+
+{% endblock %}

@@ -18,7 +18,7 @@ class UserPasswordType extends AbstractType
             ->add('ActualPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'required' => false,
+                'required' => true,
                 'label' => false,
                 'mapped' => false,
                 'attr' => [
@@ -39,7 +39,7 @@ class UserPasswordType extends AbstractType
             ->add('password', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'required' => false,
+                'required' => true,
                 'label' => false,
                 'mapped' => false,
                 'attr' => [
@@ -58,7 +58,7 @@ class UserPasswordType extends AbstractType
                 ],
             ])
             ->add('password2', PasswordType::class, [
-                'required' => false,
+                'required' => true,
                 'label' => false,
                 'mapped' => false,
                 'attr' => [
