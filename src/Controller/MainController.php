@@ -64,11 +64,13 @@ class MainController extends AbstractController
     /**
      * @Route("/nos-equipes", name="app_nos_equipes")
      */
-    public function equipes(ArticlesRepository $articlesRepository, EquipesCategoriesRepository $equipesCategoriesRepository): Response
+    public function equipes(ArticlesRepository $articlesRepository,MatchsRepository $matchsRepository, EquipesCategoriesRepository $equipesCategoriesRepository): Response
     {
+
         $categorieEquipes = $equipesCategoriesRepository->findAll();
         $articles = $articlesRepository->troisDerniersArticles();
         return $this->render('main/nos-equipes-pages.html.twig', [
+
             'articles' => $articles,
             'categories' => $categorieEquipes
         ]);
@@ -77,13 +79,16 @@ class MainController extends AbstractController
     /**
      * @Route("/club/equipe/{name}", name="app_nos_equipes_details")
      */
-    public function equipesDetail($name, ArticlesRepository $articlesRepository, EquipesRepository $equipesRepository, EquipesCategoriesRepository $equipesCategoriesRepository): Response
+    public function equipesDetail($name, ArticlesRepository $articlesRepository,
+                                  MatchsRepository $matchsRepository,EquipesRepository $equipesRepository, EquipesCategoriesRepository $equipesCategoriesRepository): Response
     {
-        $equipe = $equipesRepository->findBy(['categorie' => $name]);
+        $prochainMatch = $matchsRepository->nextMatch();
+        $equipes = $equipesRepository->findByCategory($name);
         $articles = $articlesRepository->troisDerniersArticles();
         return $this->render('main/detailEquipe.html.twig', [
+            'match' => $prochainMatch,
             'articles' => $articles,
-            'equipe' => $equipe
+            'equipes' => $equipes
         ]);
     }
 

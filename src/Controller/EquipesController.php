@@ -31,7 +31,7 @@ class EquipesController extends AbstractController
     /**
      * @Route("/new/{id}", name="app_equipes_new", methods={"GET", "POST"})
      */
-    public function new($id,Request $request, EquipesRepository $equipesRepository,EquipesCategoriesRepository $equipesCategoriesRepository): Response
+    public function new($id, Request $request, EquipesRepository $equipesRepository, EquipesCategoriesRepository $equipesCategoriesRepository): Response
     {
         $equipe = new Equipes();
         $form = $this->createForm(EquipesType::class, $equipe);
@@ -52,7 +52,7 @@ class EquipesController extends AbstractController
         }
 
         return $this->renderForm('equipes/new.html.twig', [
-            'categorie'=>$categorie,
+            'categorie' => $categorie,
             'equipe' => $equipe,
             'form' => $form,
         ]);
@@ -77,21 +77,23 @@ class EquipesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            unlink($this->getParameter('images_directory')."/".$equipe->getPhotoEquipe());
-            $image = $form->get('photoEquipe')->getData();
-            $fichier = md5(uniqid()) . '.' . $image->guessExtension();
-            $image->move(
-                $this->getParameter('images_directory'),
-                $fichier
-            );
+            if ($form->get('photoEquipe')->getData() != null) {
+                unlink($this->getParameter('images_directory') . "/" . $equipe->getPhotoEquipe());
+                $image = $form->get('photoEquipe')->getData();
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move(
+                    $this->getParameter('images_directory'),
+                    $fichier
+                );
 
             $equipe->setPhotoEquipe($fichier);
+            }
             $equipesRepository->add($equipe);
             return $this->redirectToRoute('app_equipes_categories_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('equipes/edit.html.twig', [
-            'categorie'=>$equipe->getCategorie(),
+            'categorie' => $equipe->getCategorie(),
             'equipe' => $equipe,
             'form' => $form,
         ]);
@@ -102,8 +104,8 @@ class EquipesController extends AbstractController
      */
     public function delete(Request $request, Equipes $equipe, EquipesRepository $equipesRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$equipe->getId(), $request->request->get('_token'))) {
-            unlink($this->getParameter('images_directory')."/".$equipe->getPhotoEquipe());
+        if ($this->isCsrfTokenValid('delete' . $equipe->getId(), $request->request->get('_token'))) {
+            unlink($this->getParameter('images_directory') . "/" . $equipe->getPhotoEquipe());
             $equipesRepository->remove($equipe);
         }
 

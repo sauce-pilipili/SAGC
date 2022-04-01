@@ -60,7 +60,6 @@ class JoueursController extends AbstractController
                 $this->getParameter('images_directory'),
                 $fichier
             );
-            unlink($this->getParameter('images_directory')."/".$joueur->getImagePortrait());
             $joueur->setImagePortrait($fichier);
 
             $joueur->setEquipe($equipesRepository->find($id));

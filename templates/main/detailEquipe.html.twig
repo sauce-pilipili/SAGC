@@ -1,187 +1,144 @@
 {% extends 'base.html.twig' %}
-{% block title %}SAGC -nos équipes{% endblock%}
+{% block title %}SAGC -nos équipes{% endblock %}
 {% block body %}
     {{ include('_includes/Front/navigation.html.twig') }}
-    {% if equipe|length <= 1 %}
-        <header id="teams_details_header">
+    {% if equipes|length == 1 %}
+        {% for equipe in equipes %}
+            {{ dump(equipes) }}
+            <header id="teams_details_header">
+                <img src="{{ asset('uploads/'~equipe.photoEquipe) }}" alt="Photo de joueurs" class="header_img"/>
+            </header>
+            <main>
+                <section class="players_section">
+                    <h3 class="teams_details_subtitle"></h3>
+                    <h1 class="teams_details_title">{{ equipe.nom }}</h1>
+                    <img src="{{ asset('Front/IMG/Dots/Grille de répétition 3.png') }}" alt="" class="dot_1">
+                    <div class="teams_details_top_content">
+                        {% for joueur in equipe.joueurs %}
+                            <div class="container">
+                                <img src="{{ asset('uploads/'~joueur.imagePortrait) }}" alt="" class="teams_details_picture">
+                                <h4 class="teams_details_player_position">{{ joueur.poste }}</h4>
+                                <h3 class="teams_details_player_name">{{ joueur.nom }} {{ joueur.prenom }}</h3>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                <section class="next_match_section">
+                    <div class="next_match_background_container">
+                        <div class="next_match_container">
+                            <img src="{{ asset('Front/IMG/Logo/logo@2x.png') }}" alt="Team logo" class="left_team"/>
+                            <div class="next_match_text_container">
+                                {% if match != null %}
+                                    <h2 class="next_match_text">Prochain Match</h2>
+                                    <time class="next_match_date">{{ match.dateMatch|format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}
+                                        à {{ match.dateMatch|date("H:i") }}</time>
+                                    <h4 class="next_match_location">{{ match.lieuDuMatch }}</h4>
+                                {% else %}
+                                    <h2 class="next_match_text">Prochain Match</h2>
+                                {% endif %}
+                            </div>
+                            {% if match != null %}
+                                <img style="max-width: 250px" src="{{ asset('uploads/'~match.adversaire.logo) }}"
+                                     alt="Team logo"
+                                     class="right_team"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+                <section class="results_ranking_section">
+                    <div class="results_cards_container">
+                        <div class="results_card">
+                            <div class="results_card_text_container">
+                                <h5 class="results_card_title">Les résultats
+                                </h5>
+                                <a href="#" class="button">Voir les résultats</a>
+                            </div>
+                        </div>
+                        <div class="results_card">
+                            <div class="results_card_text_container">
+                                <h5 class="results_card_title">Le classement</h5>
+                                <a href="#" class="button">Voir les classement</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        {% endfor %}
+    {% else %}
+
+        <header id="ice_skating_school_header">
             <img src="{{ asset('Front/IMG/Pictures/image 43.png') }}" alt="Photo de joueurs" class="header_img" />
         </header>
-
         <main>
+            <section class="ice_skatting_school_text_section">
+                <h3 class="ice_skatting_school_subtitle">Nos équipes</h3>
+                <h1 class="ice_skatting_school_title"> {% for equipe in equipes |slice(0,1)%}{{ equipe.categorie.nom }}{% endfor %}</h1>
 
-            <section class="players_section">
-                <h3 class="teams_details_subtitle">Nos équipes</h3>
-                <h1 class="teams_details_title">NATIONALE 2</h1>
+                <p class="ice_skatting_school_school_first_text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Saepe blanditiis voluptatum iste sit recusandae vero quos atque, eligendi magni veritatis</p>
 
-                <img src="../../IMG/Dots/Grille de répétition 3.png" alt="" class="dot_1">
-                <img src="../../IMG/Dots/Grille de répétition 3.png" alt="" class="dot_2">
-                <div class="teams_details_top_content">
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Capitaine</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
+                <p class="ice_skatting_school_second_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+                    commodi
+                    quia odit amet vitae provident a! A qui facere quod quas asperiores excepturi incidunt aut repudiandae
+                    voluptatum. Non, id suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, alias est!
+                    Culpa consequuntur illum porro velit sit? Fugit eaque fuga adipisci. Quas ullam labore odio dolorem
+                    nulla, quis harum. Aut.</p>
 
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Joueur</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
-
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Joueur</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
-                </div>
-
-                <div class="teams_details_middle_content">
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Joueur</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
-
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Joueur</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
-
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Joueur</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
-                </div>
-
-                <div class="teams_details_bottom_content">
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Joueur</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
-
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Joueur</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
-
-                    <div class="container">
-                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
-                        <h4 class="teams_details_player_position">Joueur</h4>
-                        <h3 class="teams_details_player_name">Prénom Nom</h3>
-                    </div>
+                <div class="ice_skatting_school_btn_container">
+                    <a href="#" class="button">Votre essai offert</a>
+                    <a href="#" class="green_button"><span class="green_button_span">Contactez le club</span></a>
                 </div>
             </section>
-
-            <section class="next_match_section">
-                <div class="next_match_background_container">
-                    <div class="next_match_container">
-                        <img src="../..//IMG/Logo/logo@2x.png" alt="Team logo" class="left_team" />
-
-                        <div class="next_match_text_container">
-                            <h2 class="next_match_text">Prochain Match</h2>
-                            <time class="next_match_date">15 Avril 2022 à 15h30</time>
-                            <h4 class="next_match_location">Stade Bordealais</h4>
-                        </div>
-
-                        <img src="../..//IMG/Logo/Paris-Hockey-Club.png" alt="Team logo" class="right_team" />
-                    </div>
+            <section class="ice_skatting_school_pictures_section">
+                <h1 class="ice_skatting_school_pictures_title">
+                    Les équipes {% for equipe in equipes |slice(0,1)%}{{ equipe.categorie.nom }}{% endfor %}
+                </h1>
+        <div class="pictures_content_container">
+        {% for equipe in equipes %}
+                    <img src="{{ asset('uploads/'~equipe.photoEquipe) }}" alt="" class="ice_skatting_school_pictures">
+                    <h3 class="ice_skatting_school_pictures_text">{{ equipe.nom }}</h3>
+        {% endfor %}
                 </div>
             </section>
-
-            <section class="results_ranking_section">
-
-                <div class="results_cards_container">
-                    <div class="results_card">
-                        <div class="results_card_text_container">
-                            <h5 class="results_card_title">Les résultats
-                            </h5>
-                            <a href="#" class="button">Voir les résultats</a>
-                        </div>
-                    </div>
-
-                    <div class="results_card">
-                        <div class="results_card_text_container">
-                            <h5 class="results_card_title">Le classement</h5>
-                            <a href="#" class="button">Voir les classement</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="news_section">
-                <div class="news_title_container">
-                    <span class="news_stroke_title">les actualites</span>
-                    <h2 class="news_title">Les actualités du SAGC</h2>
-                </div>
-
-                <div class="news_cards_container">
-                    <img src="../../IMG/Dots/Grille de répétition 3.png" alt="Grille de répétition décorative"
-                         class="news_dot" />
-
-                    <div class="news_card">
-                        <img src="../../IMG/Pictures/article_img(1).png" alt="Photo de joueurs" class="news_card_img" />
-                        <div class="news_text_container">
-                            <h5 class="news_article_category">Nom de la catégorie</h5>
-                            <h5 class="news_article_title">Titre de l'article</h5>
-                            <p class="news_article_text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Temporibus voluptatem molestiae, distinctio molestias
-                                excepturi consequuntur a illo officiis veritatis harum! Maxime
-                                magnam atque corporis qui earum eligendi placeat provident
-                                molestiae?
-                            </p>
-                            <a href="#" class="news_btn">Lire l'article</a>
-                        </div>
-                    </div>
-
-                    <div class="news_card">
-                        <img src="../../IMG/Pictures/article_img(2).png" alt="Photo de joueurs" class="news_card_img" />
-                        <div class="news_text_container">
-                            <h5 class="news_article_category">Nom de la catégorie</h5>
-                            <h5 class="news_article_title">Titre de l'article</h5>
-                            <p class="news_article_text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Temporibus voluptatem molestiae, distinctio molestias
-                                excepturi consequuntur a illo officiis veritatis harum! Maxime
-                                magnam atque corporis qui earum eligendi placeat provident
-                                molestiae?
-                            </p>
-                            <a href="#" class="news_btn">Lire l'article</a>
-                        </div>
-                    </div>
-
-                    <div class="news_card">
-                        <img src="../../IMG/Pictures/article_img(2).png" alt="Photo de joueurs" class="news_card_img" />
-                        <div class="news_text_container">
-                            <h5 class="news_article_category">Nom de la catégorie</h5>
-                            <h5 class="news_article_title">Titre de l'article</h5>
-                            <p class="news_article_text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Temporibus voluptatem molestiae, distinctio molestias
-                                excepturi consequuntur a illo officiis veritatis harum! Maxime
-                                magnam atque corporis qui earum eligendi placeat provident
-                                molestiae?
-                            </p>
-                            <a href="#" class="news_btn">Lire l'article</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
         </main>
-    {% else %}
-        detail des equipe
     {% endif %}
 
-
+    <section class="news_section">
+        <div class="news_title_container">
+            <span class="news_stroke_title">les actualites</span>
+            <h2 class="news_title">Les actualités du SAGC</h2>
+        </div>
+        <div class="news_cards_container">
+            <img src="{{ asset('Front/IMG/Dots/Grille de répétition 3.png') }}"
+                 alt="Grille de répétition décorative" class="news_dot"/>
+            {% for article in articles %}
+                <div class="news_card">
+                    <img src="{{ asset('uploads/'~article.imageEnAvant) }}"
+                         alt="{{ article.legendePhotoEnAvant }}" class="news_card_img"/>
+                    <div class="news_text_container">
+                        <h5 class="news_article_category">{{ article.categorie.name }}</h5>
+                        <h5 class="news_article_title">{{ article.title }}</h5>
+                        <p class="news_article_text">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Temporibus voluptatem molestiae, distinctio molestias
+                            excepturi consequuntur a illo officiis veritatis harum! Maxime
+                            magnam atque corporis qui earum eligendi placeat provident
+                            molestiae?
+                        </p>
+                        <a href="{{ path('app_sagc_article', {slug: article.slug}) }}" class="news_btn">Lire
+                            l'article</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 
     {{ include('_includes/Front/footer.html.twig') }}
 {% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('Front/CSS/Nationale-2/nos-equipes-nationale-2.css') }}">
     <link rel="stylesheet" href="{{ asset('Front/CSS/Nationale-2/nos-equipes-nationale-2-responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/CSS/Ecole-de-patinage/nos-equipes-ecole-de-patinage.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/CSS/Ecole-de-patinage/nos-equipes-ecole-de-patinage-responsive.css') }}">
 {% endblock %}
