@@ -45,22 +45,21 @@ class JoueursRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
-    //  * @return Joueurs[] Returns an array of Joueurs objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return Joueurs[] Returns an array of Joueurs objects
+      */
+
+    public function findBySearch($value)
     {
         return $this->createQueryBuilder('j')
-            ->andWhere('j.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('j.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('j.nom LIKE :val OR j.prenom LIKE :val1')
+            ->setParameter('val', '%'.$value.'%')
+            ->setParameter('val1', '%'.$value.'%')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Joueurs

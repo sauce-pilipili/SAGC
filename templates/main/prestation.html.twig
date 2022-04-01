@@ -53,32 +53,56 @@
         </section>
 
         <section class="services_form_section">
-            <div class="form_container">
+
+                <form name="form" action="{{ path('app_contact') }}" method="post" class="form_container">
+
+                    {% for message in app.flashes('success') %}
+                        <div class="greenalert">
+                            <div class="close" id="close" onclick="$('.fas').parents('.greenalert').remove();"><i
+                                        class="fas fa-times"></i></div>
+                            <div class="success-alert">
+                                <p style="color: #72b572">{{ message }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% for message in app.flashes('danger') %}
+                        <div class="redalert">
+                            <div class="close" id="close" onclick="$('.fas').parents('.redalert').remove();"><i
+                                        class="fas fa-times"></i></div>
+                            <div class="danger-alert">
+                                <p style="color: #ad1212">{{ message }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
                 <h3 class="services_form_title">Contactez-nous</h3>
-                <div class="flex_form_items">
-                    <div class="input_container">
-                        <label class="form_label">Votre prénom</label>
-                        <input type="text" class="normal-size form_input" placeholder="Répondez ici...">
+                    <div class="flex_form_items">
+                        <div class="input_container">
+                            <label class="form_label">Votre prénom</label>
+                            <input type="text" class="normal-size form_input" placeholder="Répondez ici...">
+                        </div>
+
+                        <div class="input_container">
+                            <label class="form_label">Votre Nom</label>
+                            <input type="text" class="normal-size form_input" placeholder="Répondez ici...">
+                        </div>
                     </div>
 
+
                     <div class="input_container">
-                        <label class="form_label">Votre Nom</label>
-                        <input type="text" class="normal-size form_input" placeholder="Répondez ici...">
+                        <label class="form_label">Adresse Email</label>
+                        <input name="email" type="mail" required placeholder="nom@exemple.com" class="normal-size form_input">
                     </div>
-                </div>
 
-                <div class="input_container">
-                    <label class="form_label">Votre Nom</label>
-                    <input type="text" class="normal-size form_input" placeholder="Répondez ici...">
-                </div>
+                    <div class="input_container" id="request_container">
+                        <label class="form_label">Votre demande</label>
+                        <textarea name="request" required id="request" cols="30" rows="10"
+                                  placeholder="Répondez ici..."></textarea>
+                    </div>
 
-                <div class="input_container" id="request_container">
-                    <label class="form_label">Votre demande</label>
-                    <textarea name="request" id="request" cols="30" rows="10" placeholder="Répondez ici..."></textarea>
-                </div>
+                    <button style="border: none;background-color: transparent" class="button" type="submit" >Envoyer ma demande</button>
 
-                <a href="#" class="button">Envoyer ma demande</a>
-            </div>
+
+            </form>
         </section>
     </main>
     {{ include('_includes/Front/footer.html.twig') }}

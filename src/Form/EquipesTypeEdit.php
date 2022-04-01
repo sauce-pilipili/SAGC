@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EquipesType extends AbstractType
+class EquipesTypeEdit extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -24,13 +24,13 @@ class EquipesType extends AbstractType
                     'placeholder'=> 'Écrivez le nom de l\'équipe'
                 ]
             ])
-//            ->add('categorie',EntityType::class,[
-//                'required'=>false,
-//                'class'=>EquipesCategories::class,
-//                'label'=>false,
-//                'empty_data' => null,
-//                'placeholder' => "Choisissez une catégorie associée",
-//            ])
+            ->add('categorie',EntityType::class,[
+                'required'=>false,
+                'class'=>EquipesCategories::class,
+                'label'=>false,
+                'empty_data' => null,
+                'placeholder' => "Choisissez une catégorie associée",
+            ])
             ->add('photoEquipe',FileType::class,[
                 'attr' => [
                     'class' => 'inputfile',
@@ -39,7 +39,7 @@ class EquipesType extends AbstractType
                 'label' => false,
                 'multiple' => false,
                 'mapped' => false,
-                'required' => true
+                'required' => false
             ])
         ;
     }

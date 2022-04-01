@@ -7,6 +7,9 @@ use App\Form\AdherentsType;
 use App\Repository\AdherentsRepository;
 use App\Repository\ArticlesRepository;
 use App\Repository\CategoriesRepository;
+use App\Repository\EquipesCategoriesRepository;
+use App\Repository\EquipesRepository;
+use App\Repository\InfosRepository;
 use App\Repository\MatchsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,13 +64,29 @@ class MainController extends AbstractController
     /**
      * @Route("/nos-equipes", name="app_nos_equipes")
      */
-    public function equipes(ArticlesRepository $articlesRepository): Response
+    public function equipes(ArticlesRepository $articlesRepository, EquipesCategoriesRepository $equipesCategoriesRepository): Response
     {
+        $categorieEquipes = $equipesCategoriesRepository->findAll();
         $articles = $articlesRepository->troisDerniersArticles();
         return $this->render('main/nos-equipes-pages.html.twig', [
-            'articles' => $articles
+            'articles' => $articles,
+            'categories' => $categorieEquipes
         ]);
     }
+
+    /**
+     * @Route("/club/equipe/{name}", name="app_nos_equipes_details")
+     */
+    public function equipesDetail($name, ArticlesRepository $articlesRepository, EquipesRepository $equipesRepository, EquipesCategoriesRepository $equipesCategoriesRepository): Response
+    {
+        $equipe = $equipesRepository->findBy(['categorie' => $name]);
+        $articles = $articlesRepository->troisDerniersArticles();
+        return $this->render('main/detailEquipe.html.twig', [
+            'articles' => $articles,
+            'equipe' => $equipe
+        ]);
+    }
+
 
     /**
      * @Route("/actualite/{categorie}", name="app_actualite")
@@ -93,20 +112,21 @@ class MainController extends AbstractController
     public function article($slug, ArticlesRepository $articlesRepository): Response
     {
         $article = $articlesRepository->findOneBy(['slug' => $slug]);
-        $articleMemeCategorie = $articlesRepository->findBy(['categorie'=>$article->getCategorie()],null,3);
+        $articleMemeCategorie = $articlesRepository->findBy(['categorie' => $article->getCategorie()], null, 3);
         return $this->render('main/article.html.twig', [
             'article' => $article,
-            'articles'=>$articleMemeCategorie
+            'articles' => $articleMemeCategorie
         ]);
     }
 
     /**
-     * @Route("/info", name="app_info")
+     * @Route("/pratique-info", name="app_info")
      */
-    public function info(): Response
+    public function info(InfosRepository $infosRepository): Response
     {
+        $infos = $infosRepository->findAll();
         return $this->render('main/info.html.twig', [
-
+            'infos' => $infos
         ]);
     }
 
@@ -127,16 +147,16 @@ class MainController extends AbstractController
      */
     public function contact(Request $request, MailerInterface $mailer): Response
     {
-        if ($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
             $emailContact = (new Email())
                 ->from($this->valid_donnees($request->get('email')))
-                ->to('contact@jade-immobilier.fr')
+                ->to('admin@admin.fr')
                 ->priority(Email::PRIORITY_HIGH)
                 ->subject('Demande de contact')
                 ->text(
-                    $this->valid_donnees($request->get('nom')) .' '.
-                    $this->valid_donnees($request->get('prenom')) . ' '.
-                    $this->valid_donnees($request->get('email')). ' a un message pour vous: ' .
+                    $this->valid_donnees($request->get('nom')) . ' ' .
+                    $this->valid_donnees($request->get('prenom')) . ' ' .
+                    $this->valid_donnees($request->get('email')) . ' a un message pour vous: ' .
                     $this->valid_donnees($request->get('request')));
             try {
                 $mailer->send($emailContact);
@@ -154,21 +174,42 @@ class MainController extends AbstractController
 
 
     /**
-     * @Route("/prestation", name="app_prestation")
+     * @Route("/prestation", name="app_prestation",methods={"GET","POST"})
      */
-    public function prestation(): Response
+    public function prestation(Request $request, MailerInterface $mailer): Response
     {
-        return $this->render('main/prestation.html.twig', [
+        if ($request->isMethod('POST')) {
 
-        ]);
+            $emailContact = (new Email())
+                ->from($this->valid_donnees($request->get('email')))
+                ->to('cadmin@admin.fr')
+                ->priority(Email::PRIORITY_HIGH)
+                ->subject('Demande de contact')
+                ->text(
+                    $this->valid_donnees($request->get('nom')) . ' ' .
+                    $this->valid_donnees($request->get('prenom')) . ' ' .
+                    $this->valid_donnees($request->get('email')) . ' a un message pour vous: ' .
+                    $this->valid_donnees($request->get('request')));
+            try {
+                $mailer->send($emailContact);
+                $this->addFlash('success', 'Votre message a bien été envoyé');
+                return $this->redirectToRoute('app_contact');
+            } catch (ExceptionInterface $exception) {
+                $this->addFlash('danger', 'l\'adresse email renseigné n\'est pas valable');
+                return $this->render('main/prestation.html.twig');
+            }
+        }
+        return $this->render('main/prestation.html.twig', []);
     }
+
 
     public function ValidFiles($file)
     {
         $extension = $file->guessExtensions;
     }
 
-    function valid_donnees($donnees){
+    function valid_donnees($donnees)
+    {
         $donnees = trim($donnees);
         $donnees = stripslashes($donnees);
         $donnees = htmlspecialchars($donnees);

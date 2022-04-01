@@ -9,7 +9,7 @@
             <div class="content-title">
                 <h1>Les équipes</h1>
                 <form class="form-search" action="">
-                    <input class="form-search_input" type="text" name="" onkeyup="ajaxSearch(this.value)" id="" placeholder="Rechercher un article">
+                    <input class="form-search_input" type="text" name="" onkeyup="ajaxSearch(this.value)" id="" placeholder="Rechercher une équipe">
                     <input class="form-search_button" type="button" value="">
                 </form>
             </div>
@@ -23,24 +23,6 @@
         </div>
     </section>
 
-
-    {#requete ajax#}
-    <script>
-        function ajaxSearch(value,roles){
-           $.ajax({
-               url:"",
-               type: "GET",
-               data:{
-                   'text':value,
-                   'roles':roles
-               },
-               success : function (data){
-                  console.log( data.ok);
-                   $("#body-list").html(data.content)
-               }
-           })
-        }
-    </script>
 {% endblock %}
 
 {% block javascripts %}

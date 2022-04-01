@@ -49,11 +49,6 @@
         {% if categorie  == equipe.categorie %}
             <tr class="table-sub_cat">
                 <td>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8">
-                        <path id="chevron-down"
-                              d="M.293,7.707a1,1,0,0,0,1.414,0L7,2.414l5.293,5.293a1,1,0,0,0,1.414-1.414l-6-6a1,1,0,0,0-1.414,0l-6,6A1,1,0,0,0,.293,7.707Z"
-                              transform="translate(14 8) rotate(180)" fill="#013C25"/>
-                    </svg>
                     <span><a href="{{ path('app_joueurs_index',{id:equipe.id}) }}">{{ equipe.nom }}</a></span>
                 </td>
                 <td class="table-row_action">
@@ -66,7 +61,7 @@
                         </svg>
                     </a>
                     <form method="post" action="{{ path('app_equipes_delete', {'id': equipe.id}) }}"
-                          onsubmit="return confirm('Voulez-vous supprimer cette catégorie?');">
+                          onsubmit="return confirm('Voulez-vous supprimer cette equipe?');">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ equipe.id) }}">
                         <button style="border: none;background-color: transparent" class="btn">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24"

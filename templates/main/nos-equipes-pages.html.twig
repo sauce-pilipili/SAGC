@@ -9,70 +9,83 @@
             </h1>
 
             <div class="our_teams_top_content">
-
+{% for categorie in categories %}
                 <div class="container">
                     <div class="overlay">
                         <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
                         <div class="middle">
-                            <a href="#" class="white_button">
+                            <a href="{{ path('app_nos_equipes_details',{name:categorie.id}) }}" class="white_button">
                                 <div class="white_button_span">Voir l'équipe</div>
                             </a>
                         </div>
                     </div>
-                    <h2 class="teams"> Nationale 1 </h2>
+                    <h2 class="teams">{{ categorie.nom }}</h2>
                 </div>
+{% endfor %}
+{#                {% for categorie in categories | slice(2,25)%}#}
+{#                    <div class="container">#}
+{#                        <div class="overlay">#}
+{#                            <img src="https://via.placeholder.com/430" alt="Avatar" class="image">#}
+{#                            <div class="middle">#}
+{#                                <a href="#" class="white_button">#}
+{#                                    <div class="white_button_span">Voir l'équipe</div>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <h2 class="teams">{{ categorie.nom }}</h2>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#                <div class="container">#}
+{#                    <div class="overlay">#}
+{#                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">#}
+{#                        <div class="middle">#}
+{#                            <a href="#" class="white_button">#}
+{#                                <div class="white_button_span">Voir l'équipe</div>#}
+{#                            </a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <h2 class="teams"> Nationale 2 </h2>#}
+{#                </div>#}
 
-                <div class="container">
-                    <div class="overlay">
-                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
-                        <div class="middle">
-                            <a href="#" class="white_button">
-                                <div class="white_button_span">Voir l'équipe</div>
-                            </a>
-                        </div>
-                    </div>
-                    <h2 class="teams"> Nationale 2 </h2>
-                </div>
+{#                <div class="container">#}
+{#                    <div class="overlay">#}
+{#                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">#}
+{#                        <div class="middle">#}
+{#                            <a href="#" class="white_button">#}
+{#                                <div class="white_button_span">Voir l'équipe</div>#}
+{#                            </a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <h2 class="teams"> Ecole de patinage </h2>#}
+{#                </div>#}
+{#            </div>#}
 
-                <div class="container">
-                    <div class="overlay">
-                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
-                        <div class="middle">
-                            <a href="#" class="white_button">
-                                <div class="white_button_span">Voir l'équipe</div>
-                            </a>
-                        </div>
-                    </div>
-                    <h2 class="teams"> Ecole de patinage </h2>
-                </div>
-            </div>
+{#            <div class="our_teams_bottom_content">#}
 
-            <div class="our_teams_bottom_content">
+{#                <div class="container">#}
+{#                    <div class="overlay">#}
+{#                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">#}
+{#                        <div class="middle">#}
+{#                            <a href="#" class="white_button">#}
+{#                                <div class="white_button_span">Voir l'équipe</div>#}
+{#                            </a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <h2 class="teams"> Jeunes </h2>#}
 
-                <div class="container">
-                    <div class="overlay">
-                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
-                        <div class="middle">
-                            <a href="#" class="white_button">
-                                <div class="white_button_span">Voir l'équipe</div>
-                            </a>
-                        </div>
-                    </div>
-                    <h2 class="teams"> Jeunes </h2>
+{#                </div>#}
 
-                </div>
-
-                <div class="container">
-                    <div class="overlay">
-                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">
-                        <div class="middle">
-                            <a href="#" class="white_button">
-                                <div class="white_button_span">Voir l'équipe</div>
-                            </a>
-                        </div>
-                    </div>
-                    <h2 class="teams"> Loisirs adultes </h2>
-                </div>
+{#                <div class="container">#}
+{#                    <div class="overlay">#}
+{#                        <img src="https://via.placeholder.com/430" alt="Avatar" class="image">#}
+{#                        <div class="middle">#}
+{#                            <a href="#" class="white_button">#}
+{#                                <div class="white_button_span">Voir l'équipe</div>#}
+{#                            </a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <h2 class="teams"> Loisirs adultes </h2>#}
+{#                </div>#}
             </div>
 
         </section>

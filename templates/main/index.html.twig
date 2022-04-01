@@ -3,23 +3,29 @@
 {% block title %}SAGC{% endblock %}
 
 {% block body %}
-{{ include('_includes/Front/navigation.html.twig') }}
+    {{ include('_includes/Front/navigation.html.twig') }}
     <header id="homepage-header">
-        <img src="{{ asset('Front/IMG/Pictures/image 43.png') }}" alt="Photo de joueurs" class="header_img" />
+        <img src="{{ asset('Front/IMG/Pictures/image 43.png') }}" alt="Photo de joueurs" class="header_img"/>
         <div class="header_text_container">
             <span class="header_stroke_title">sagc rink hockey</span>
             <h1 class="header_title">sagc rink hockey</h1>
         </div>
 
         <div class="header_next_match_container">
-            <img src="{{ asset('Front/IMG/Logo/logo@2x.png') }}" alt="Team logo" class="left_team" />
+            <img src="{{ asset('Front/IMG/Logo/logo@2x.png') }}" alt="Team logo" class="left_team"/>
 
             <div class="next_match_text_container">
                 <h2 class="next_match_text">Prochain Match</h2>
-                <time class="next_match_date">{{ match.dateMatch|format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }} à {{ match.dateMatch|date("H:i") }}</time>
+                {% if match != null %}
+                <time class="next_match_date">{{ match.dateMatch|format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}
+                    à {{ match.dateMatch|date("H:i") }}</time>
                 <h4 class="next_match_location">{{ match.lieuDuMatch }}</h4>
+            {% endif %}
             </div>
-            <img style="max-width: 250px" src="{{ asset('uploads/'~match.adversaire.logo) }}" alt="Team logo" class="right_team" />
+            {% if match != null %}
+            <img style="max-width: 250px" src="{{ asset('uploads/'~match.adversaire.logo) }}" alt="Team logo"
+                 class="right_team"/>
+            {% endif %}
         </div>
     </header>
     <main>
@@ -34,10 +40,11 @@
                         praesentium officia a repudiandae at commodi totam exercitationem
                         excepturi ut laboriosam. Perspiciatis, labore.
                     </p>
-                    <a href="#" class="button" id="presentation_button">Découvrir le club</a>
+                    <a href="{{ path('app_club') }}" class="button" id="presentation_button">Découvrir le club</a>
                 </div>
 
-                <img src="{{ asset('Front/IMG/Pictures/first_container-img.png') }}" alt="Photo de joueurs" class="presentation_img" />
+                <img src="{{ asset('Front/IMG/Pictures/first_container-img.png') }}" alt="Photo de joueurs"
+                     class="presentation_img"/>
             </section>
 
             <section class="stats_section">
@@ -58,7 +65,8 @@
             </section>
 
             <section class="next_event_section">
-                <img src="{{ asset('Front/IMG/Pictures/image 43-1.png') }}" alt="Photo de joueurs" class="next_event_left_img" />
+                <img src="{{ asset('Front/IMG/Pictures/image 43-1.png') }}" alt="Photo de joueurs"
+                     class="next_event_left_img"/>
 
                 <div class="next_event_middle_container">
                     <h3 class="next_event_title">Prochain événement du club</h3>
@@ -71,7 +79,8 @@
                     <a href="#" class="white_button"><span class="white_button_span">Voir tous les événements</span></a>
                 </div>
 
-                <img src="{{ asset('Front/IMG/Pictures/image 43-reverse.png') }}" alt="Photo de joueurs" class="next_event_right_img" />
+                <img src="{{ asset('Front/IMG/Pictures/image 43-reverse.png') }}" alt="Photo de joueurs"
+                     class="next_event_right_img"/>
             </section>
         </div>
 
@@ -80,26 +89,31 @@
                 <h2 class="results_title">Les résultats</h2>
 
                 <div class="results_card_container">
-                    <img src="{{ asset('Front/IMG/Dots/Groupe 354.png') }}" alt="Grille de répétitions décorative" class="results_card_dot_top" />
-                    <img src="{{ asset('Front/IMG/Dots/Groupe 354.png') }}" alt="Grille de répétitions décorative" class="results_card_dot_bottom" />
+                    <img src="{{ asset('Front/IMG/Dots/Groupe 354.png') }}" alt="Grille de répétitions décorative"
+                         class="results_card_dot_top"/>
+                    <img src="{{ asset('Front/IMG/Dots/Groupe 354.png') }}" alt="Grille de répétitions décorative"
+                         class="results_card_dot_bottom"/>
                     {% for resultat in resultats %}
-                    <div class="results_card" id="results-card-2">
-                        <div class="results_card_text_container">
-                            <h5 class="results_card_title">{{ resultat.equipe }}</h5>
-                            <h5 class="results_card_date">{{ resultat.dateMatch|format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }} à {{ resultat.dateMatch|date("H:i") }}</h5>
-                            <h5 class="results_card_location">{{ resultat.lieuDuMatch }}</h5>
-                        </div>
-
-                        <div class="results_card_match_container">
-                            <img src="{{ asset('Front/IMG/Logo/logo.png') }}" alt="Logo d'équipe" class="results_card_left_team" />
-
-                            <div class="results_card_match_number_container">
-                                <span class="results_card_match_number">{{ resultat.resultatSagc }}</span>
-                                <span class="results_card_match_number">{{ resultat.resultatAdversaire }}</span>
+                        <div class="results_card" id="results-card-2">
+                            <div class="results_card_text_container">
+                                <h5 class="results_card_title">{{ resultat.equipe }}</h5>
+                                <h5 class="results_card_date">{{ resultat.dateMatch|format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}
+                                    à {{ resultat.dateMatch|date("H:i") }}</h5>
+                                <h5 class="results_card_location">{{ resultat.lieuDuMatch }}</h5>
                             </div>
-                            <img style="max-width: 100px" src="{{ asset('uploads/'~match.adversaire.logo) }}" alt="Logo d'équipe" class="results_card_right_team" />
+
+                            <div class="results_card_match_container">
+                                <img src="{{ asset('Front/IMG/Logo/logo.png') }}" alt="Logo d'équipe"
+                                     class="results_card_left_team"/>
+
+                                <div class="results_card_match_number_container">
+                                    <span class="results_card_match_number">{{ resultat.resultatSagc }}</span>
+                                    <span class="results_card_match_number">{{ resultat.resultatAdversaire }}</span>
+                                </div>
+                                <img style="max-width: 100px" src="{{ asset('uploads/'~match.adversaire.logo) }}"
+                                     alt="Logo d'équipe" class="results_card_right_team"/>
+                            </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
 
@@ -113,10 +127,12 @@
                 </div>
 
                 <div class="news_cards_container">
-                    <img src="{{ asset('Front/IMG/Dots/Grille de répétition 3.png') }}" alt="Grille de répétition décorative" class="news_dot" />
+                    <img src="{{ asset('Front/IMG/Dots/Grille de répétition 3.png') }}"
+                         alt="Grille de répétition décorative" class="news_dot"/>
                     {% for article in articles %}
                         <div class="news_card">
-                            <img src="{{ asset('uploads/'~article.imageEnAvant) }}" alt="{{ article.legendePhotoEnAvant }}" class="news_card_img" />
+                            <img src="{{ asset('uploads/'~article.imageEnAvant) }}"
+                                 alt="{{ article.legendePhotoEnAvant }}" class="news_card_img"/>
                             <div class="news_text_container">
                                 <h5 class="news_article_category">{{ article.categorie.name }}</h5>
                                 <h5 class="news_article_title">{{ article.title }}</h5>
@@ -127,75 +143,35 @@
                                     magnam atque corporis qui earum eligendi placeat provident
                                     molestiae?
                                 </p>
-                                <a href="{{ path('app_sagc_article', {slug: article.slug}) }}" class="news_btn">Lire l'article</a>
+                                <a href="{{ path('app_sagc_article', {slug: article.slug}) }}" class="news_btn">Lire
+                                    l'article</a>
                             </div>
                         </div>
                     {% endfor %}
-{#                    <div class="news_card">#}
-{#                        <img src="{{ asset('Front/IMG/Pictures/article_img(1).png') }}" alt="Photo de joueurs" class="news_card_img" />#}
-{#                        <div class="news_text_container">#}
-{#                            <h5 class="news_article_category">Nom de la catégorie</h5>#}
-{#                            <h5 class="news_article_title">Titre de l'article</h5>#}
-{#                            <p class="news_article_text">#}
-{#                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.#}
-{#                                Temporibus voluptatem molestiae, distinctio molestias#}
-{#                                excepturi consequuntur a illo officiis veritatis harum! Maxime#}
-{#                                magnam atque corporis qui earum eligendi placeat provident#}
-{#                                molestiae?#}
-{#                            </p>#}
-{#                            <a href="#" class="news_btn">Lire l'article</a>#}
-{#                        </div>#}
-{#                    </div>#}
-
-{#                    <div class="news_card">#}
-{#                        <img src="{{ asset('Front/IMG/Pictures/article_img(2).png') }}" alt="Photo de joueurs" class="news_card_img" />#}
-{#                        <div class="news_text_container">#}
-{#                            <h5 class="news_article_category">Nom de la catégorie</h5>#}
-{#                            <h5 class="news_article_title">Titre de l'article</h5>#}
-{#                            <p class="news_article_text">#}
-{#                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.#}
-{#                                Temporibus voluptatem molestiae, distinctio molestias#}
-{#                                excepturi consequuntur a illo officiis veritatis harum! Maxime#}
-{#                                magnam atque corporis qui earum eligendi placeat provident#}
-{#                                molestiae?#}
-{#                            </p>#}
-{#                            <a href="#" class="news_btn">Lire l'article</a>#}
-{#                        </div>#}
-{#                    </div>#}
-
-{#                    <div class="news_card">#}
-{#                        <img src="{{ asset('Front/IMG/Pictures/article_img(2).png') }}" alt="Photo de joueurs" class="news_card_img" />#}
-{#                        <div class="news_text_container">#}
-{#                            <h5 class="news_article_category">Nom de la catégorie</h5>#}
-{#                            <h5 class="news_article_title">Titre de l'article</h5>#}
-{#                            <p class="news_article_text">#}
-{#                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.#}
-{#                                Temporibus voluptatem molestiae, distinctio molestias#}
-{#                                excepturi consequuntur a illo officiis veritatis harum! Maxime#}
-{#                                magnam atque corporis qui earum eligendi placeat provident#}
-{#                                molestiae?#}
-{#                            </p>#}
-{#                            <a href="#" class="news_btn">Lire l'article</a>#}
-{#                        </div>#}
-{#                    </div>#}
                 </div>
             </section>
 
             <section class="partner_section">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt="" class="partner_logo" /></div>
-                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt="" class="partner_logo" /></div>
-                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt="" class="partner_logo" /></div>
-                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt="" class="partner_logo" /></div>
-                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt="" class="partner_logo" /></div>
-                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt="" class="partner_logo" /></div>
+                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt=""
+                                                       class="partner_logo"/></div>
+                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt=""
+                                                       class="partner_logo"/></div>
+                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt=""
+                                                       class="partner_logo"/></div>
+                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt=""
+                                                       class="partner_logo"/></div>
+                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt=""
+                                                       class="partner_logo"/></div>
+                        <div class="swiper-slide"><img src="{{ asset('Front/IMG/Logo/logo1.png') }}" alt=""
+                                                       class="partner_logo"/></div>
                     </div>
                 </div>
             </section>
         </div>
     </main>
-{{ include('_includes/Front/footer.html.twig') }}
+    {{ include('_includes/Front/footer.html.twig') }}
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="{{ asset('Front/JS/Swiper/swiper.js') }}"></script>
@@ -203,6 +179,6 @@
     <script src="{{ asset('Front/JS/burger-menu.js') }}"></script>
 {% endblock %}
 {% block stylesheets %}
-<link rel="stylesheet" href={{ asset('Front/CSS/Index/index.css')}} />
-<link rel="stylesheet" href="{{ asset('Front/CSS/Index/index-responsive.css') }}" />
+    <link rel="stylesheet" href="{{ asset('Front/CSS/Index/index.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('Front/CSS/Index/index-responsive.css') }}"/>
 {% endblock %}

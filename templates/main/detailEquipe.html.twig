@@ -1,0 +1,187 @@
+{% extends 'base.html.twig' %}
+{% block title %}SAGC -nos équipes{% endblock%}
+{% block body %}
+    {{ include('_includes/Front/navigation.html.twig') }}
+    {% if equipe|length <= 1 %}
+        <header id="teams_details_header">
+            <img src="{{ asset('Front/IMG/Pictures/image 43.png') }}" alt="Photo de joueurs" class="header_img" />
+        </header>
+
+        <main>
+
+            <section class="players_section">
+                <h3 class="teams_details_subtitle">Nos équipes</h3>
+                <h1 class="teams_details_title">NATIONALE 2</h1>
+
+                <img src="../../IMG/Dots/Grille de répétition 3.png" alt="" class="dot_1">
+                <img src="../../IMG/Dots/Grille de répétition 3.png" alt="" class="dot_2">
+                <div class="teams_details_top_content">
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Capitaine</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Joueur</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Joueur</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+                </div>
+
+                <div class="teams_details_middle_content">
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Joueur</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Joueur</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Joueur</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+                </div>
+
+                <div class="teams_details_bottom_content">
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Joueur</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Joueur</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+
+                    <div class="container">
+                        <img src="https://via.placeholder.com" alt="" class="teams_details_picture">
+                        <h4 class="teams_details_player_position">Joueur</h4>
+                        <h3 class="teams_details_player_name">Prénom Nom</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="next_match_section">
+                <div class="next_match_background_container">
+                    <div class="next_match_container">
+                        <img src="../..//IMG/Logo/logo@2x.png" alt="Team logo" class="left_team" />
+
+                        <div class="next_match_text_container">
+                            <h2 class="next_match_text">Prochain Match</h2>
+                            <time class="next_match_date">15 Avril 2022 à 15h30</time>
+                            <h4 class="next_match_location">Stade Bordealais</h4>
+                        </div>
+
+                        <img src="../..//IMG/Logo/Paris-Hockey-Club.png" alt="Team logo" class="right_team" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="results_ranking_section">
+
+                <div class="results_cards_container">
+                    <div class="results_card">
+                        <div class="results_card_text_container">
+                            <h5 class="results_card_title">Les résultats
+                            </h5>
+                            <a href="#" class="button">Voir les résultats</a>
+                        </div>
+                    </div>
+
+                    <div class="results_card">
+                        <div class="results_card_text_container">
+                            <h5 class="results_card_title">Le classement</h5>
+                            <a href="#" class="button">Voir les classement</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="news_section">
+                <div class="news_title_container">
+                    <span class="news_stroke_title">les actualites</span>
+                    <h2 class="news_title">Les actualités du SAGC</h2>
+                </div>
+
+                <div class="news_cards_container">
+                    <img src="../../IMG/Dots/Grille de répétition 3.png" alt="Grille de répétition décorative"
+                         class="news_dot" />
+
+                    <div class="news_card">
+                        <img src="../../IMG/Pictures/article_img(1).png" alt="Photo de joueurs" class="news_card_img" />
+                        <div class="news_text_container">
+                            <h5 class="news_article_category">Nom de la catégorie</h5>
+                            <h5 class="news_article_title">Titre de l'article</h5>
+                            <p class="news_article_text">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                Temporibus voluptatem molestiae, distinctio molestias
+                                excepturi consequuntur a illo officiis veritatis harum! Maxime
+                                magnam atque corporis qui earum eligendi placeat provident
+                                molestiae?
+                            </p>
+                            <a href="#" class="news_btn">Lire l'article</a>
+                        </div>
+                    </div>
+
+                    <div class="news_card">
+                        <img src="../../IMG/Pictures/article_img(2).png" alt="Photo de joueurs" class="news_card_img" />
+                        <div class="news_text_container">
+                            <h5 class="news_article_category">Nom de la catégorie</h5>
+                            <h5 class="news_article_title">Titre de l'article</h5>
+                            <p class="news_article_text">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                Temporibus voluptatem molestiae, distinctio molestias
+                                excepturi consequuntur a illo officiis veritatis harum! Maxime
+                                magnam atque corporis qui earum eligendi placeat provident
+                                molestiae?
+                            </p>
+                            <a href="#" class="news_btn">Lire l'article</a>
+                        </div>
+                    </div>
+
+                    <div class="news_card">
+                        <img src="../../IMG/Pictures/article_img(2).png" alt="Photo de joueurs" class="news_card_img" />
+                        <div class="news_text_container">
+                            <h5 class="news_article_category">Nom de la catégorie</h5>
+                            <h5 class="news_article_title">Titre de l'article</h5>
+                            <p class="news_article_text">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                Temporibus voluptatem molestiae, distinctio molestias
+                                excepturi consequuntur a illo officiis veritatis harum! Maxime
+                                magnam atque corporis qui earum eligendi placeat provident
+                                molestiae?
+                            </p>
+                            <a href="#" class="news_btn">Lire l'article</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    {% else %}
+        detail des equipe
+    {% endif %}
+
+
+
+    {{ include('_includes/Front/footer.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('Front/CSS/Nationale-2/nos-equipes-nationale-2.css') }}">
+    <link rel="stylesheet" href="{{ asset('Front/CSS/Nationale-2/nos-equipes-nationale-2-responsive.css') }}">
+{% endblock %}

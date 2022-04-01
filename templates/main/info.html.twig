@@ -18,56 +18,60 @@
                 nulla, quis harum. Aut.</p>
 
             <div class="pratical_information_top_cards_container">
-                <div class="pratical_informations_card">
-                    <p class="pratical_informations_card_title">
-                        Planning d'entrainement
-                    </p>
-                    <a href="#" class="pratical_informations_see_more">Voir le planning</a>
-                </div>
+                {% for info in infos %}
+                    <div class="pratical_informations_card">
+                        <p class="pratical_informations_card_title">
+                            {{ info.name }}
+                        </p>
+                        <a class="pratical_informations_see_more" href="{{ asset('document/'~info.document) }}"
+                           download="{{ info.nomDocument }}">Télécharger<i class="fas fa-upload"></i></a>
 
-                <div class="pratical_informations_card">
-                    <p class="pratical_informations_card_title">
-                        La charte du joueur
-                    </p>
-                    <a href="#" class="pratical_informations_see_more">Voir la charte</a>
-                </div>
+{#                        <a href="#" class="pratical_informations_see_more">télécharger</a>#}
+                    </div>
+                {% endfor %}
+{#                <div class="pratical_informations_card">#}
+{#                    <p class="pratical_informations_card_title">#}
+{#                        La charte du joueur#}
+{#                    </p>#}
+{#                    <a href="#" class="pratical_informations_see_more">Voir la charte</a>#}
+{#                </div>#}
 
-                <div class="pratical_informations_card">
-                    <p class="pratical_informations_card_title">
-                        Le règlement intérieur
-                    </p>
-                    <a href="#" class="pratical_informations_see_more">Voir le règlement</a>
-                </div>
+{#                <div class="pratical_informations_card">#}
+{#                    <p class="pratical_informations_card_title">#}
+{#                        Le règlement intérieur#}
+{#                    </p>#}
+{#                    <a href="#" class="pratical_informations_see_more">Voir le règlement</a>#}
+{#                </div>#}
             </div>
 
-            <div class="pratical_information_bottom_cards_container">
-                <div class="pratical_informations_card">
-                    <p class="pratical_informations_card_title">
-                        CERFA Sport Santé
-                    </p>
-                    <a href="#" class="pratical_informations_see_more">Voir le document CERFA</a>
-                </div>
+            {# <div class="pratical_information_bottom_cards_container"> #}
+            {# <div class="pratical_informations_card"> #}
+            {# <p class="pratical_informations_card_title"> #}
+            {# CERFA Sport Santé #}
+            {# </p> #}
+            {# <a href="#" class="pratical_informations_see_more">Voir le document CERFA</a> #}
+            {# </div> #}
 
-                <div class="pratical_informations_card">
-                    <p class="pratical_informations_card_title">
-                        Assurance
-                    </p>
-                    <a href="#" class="pratical_informations_see_more">Voir les assurances</a>
-                </div>
+            {# <div class="pratical_informations_card"> #}
+            {# <p class="pratical_informations_card_title"> #}
+            {# Assurance #}
+            {# </p> #}
+            {# <a href="#" class="pratical_informations_see_more">Voir les assurances</a> #}
+            {# </div> #}
 
-                <div class="pratical_informations_card">
-                    <p class="pratical_informations_card_title">
-                        Guide Assurance
-                    </p>
-                    <a href="#" class="pratical_informations_see_more">Voir le guide</a>
-                </div>
+            {# <div class="pratical_informations_card"> #}
+            {# <p class="pratical_informations_card_title"> #}
+            {# Guide Assurance #}
+            {# </p> #}
+            {# <a href="#" class="pratical_informations_see_more">Voir le guide</a> #}
+            {# </div> #}
             </div>
         </section>
     </main>
     {{ include('_includes/Front/footer.html.twig') }}
 {% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{(asset('Front/CSS/infos-pratiques/infos-pratiques.css')) }}">
+    <link rel="stylesheet" href="{{ (asset('Front/CSS/infos-pratiques/infos-pratiques.css')) }}">
     <link rel="stylesheet" href=" {{ (asset('Front/CSS/infos-pratiques/infos-pratiques-responsive.css')) }}"
 
 {% endblock %}

@@ -6,7 +6,7 @@
     {{ form_errors(form.nom) }}
     {{ form_widget(form.nom) }}
 </div>
-
+{% if app.request.attributes.get('_route') == 'app_equipes_edit' %}
 <div class="row">
     <label class="label" for="titre">
         <p>Choisissez un nom de catégorie</p>
@@ -14,7 +14,7 @@
     {{ form_errors(form.categorie) }}
     {{ form_widget(form.categorie) }}
 </div>
-
+{% endif %}
 <div class="row ">
     <label class="label" for="image">
         <h2>Photo de l'équipe</h2>

@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Equipes;
 use App\Form\EquipesType;
+use App\Form\EquipesTypeEdit;
+use App\Repository\CategoriesRepository;
+use App\Repository\EquipesCategoriesRepository;
 use App\Repository\EquipesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,15 +29,17 @@ class EquipesController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="app_equipes_new", methods={"GET", "POST"})
+     * @Route("/new/{id}", name="app_equipes_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EquipesRepository $equipesRepository): Response
+    public function new($id,Request $request, EquipesRepository $equipesRepository,EquipesCategoriesRepository $equipesCategoriesRepository): Response
     {
         $equipe = new Equipes();
         $form = $this->createForm(EquipesType::class, $equipe);
         $form->handleRequest($request);
 
+        $categorie = $equipesCategoriesRepository->find($id);
         if ($form->isSubmitted() && $form->isValid()) {
+            $equipe->setCategorie($categorie);
             $image = $form->get('photoEquipe')->getData();
             $fichier = md5(uniqid()) . '.' . $image->guessExtension();
             $image->move(
@@ -47,6 +52,7 @@ class EquipesController extends AbstractController
         }
 
         return $this->renderForm('equipes/new.html.twig', [
+            'categorie'=>$categorie,
             'equipe' => $equipe,
             'form' => $form,
         ]);
@@ -67,7 +73,7 @@ class EquipesController extends AbstractController
      */
     public function edit(Request $request, Equipes $equipe, EquipesRepository $equipesRepository): Response
     {
-        $form = $this->createForm(EquipesType::class, $equipe);
+        $form = $this->createForm(EquipesTypeEdit::class, $equipe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -85,6 +91,7 @@ class EquipesController extends AbstractController
         }
 
         return $this->renderForm('equipes/edit.html.twig', [
+            'categorie'=>$equipe->getCategorie(),
             'equipe' => $equipe,
             'form' => $form,
         ]);

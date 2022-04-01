@@ -10,6 +10,7 @@
 
 .our_teams_top_content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   gap: 53px;
 }
@@ -23,7 +24,7 @@
 
 .our_teams_picture_container {
   position: relative;
-  width: 430px;
+  min-width: 430px;
   height: auto; /* à changer en fonction de la hauteur maximal souhaité pour la photo. */
   cursor: pointer;
 }

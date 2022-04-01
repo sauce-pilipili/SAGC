@@ -2,7 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Categories;
+use App\Entity\Equipes;
 use App\Entity\Joueurs;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -10,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class JoueursType extends AbstractType
+class JoueursTypeEdit extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -43,16 +47,22 @@ class JoueursType extends AbstractType
                     'Gardien'=> 'Gardien',
                     'Joueur'=>'Joueur'                ]
             ])
+            ->add('equipe',EntityType::class,[
+                'required'=>false,
+                'class'=>Equipes::class,
+                'label'=>false,
+                'empty_data' => null,
+                'placeholder' => "Choisissez une equipe associée",
+            ])
 
             ->add('imagePortrait',FileType::class,[
                 'attr' => [
                     'class' => 'inputfile',
-
                 ],
                 'label' => false,
                 'multiple' => false,
                 'mapped' => false,
-                'required' => true
+                'required' => false
             ])
         ;
     }

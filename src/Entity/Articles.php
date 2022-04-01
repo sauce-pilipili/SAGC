@@ -6,6 +6,7 @@ use App\Repository\ArticlesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use phpDocumentor\Reflection\PseudoTypes\LowercaseString;
 
 /**
  * @ORM\Entity(repositoryClass=ArticlesRepository::class)
@@ -147,7 +148,7 @@ class Articles
      */
     public function setSlug($slug): void
     {
-        $this->slug = $slug;
+        $this->slug = str_replace(" ","-",strtolower($slug));
     }
 
     /**

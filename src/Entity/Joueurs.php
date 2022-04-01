@@ -30,22 +30,7 @@ class Joueurs
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $age;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $description;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $poste;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $imageDebout;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -86,30 +71,6 @@ class Joueurs
         return $this;
     }
 
-    public function getAge(): ?string
-    {
-        return $this->age;
-    }
-
-    public function setAge(string $age): self
-    {
-        $this->age = $age;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
     public function getPoste(): ?string
     {
         return $this->poste;
@@ -122,17 +83,6 @@ class Joueurs
         return $this;
     }
 
-    public function getImageDebout(): ?string
-    {
-        return $this->imageDebout;
-    }
-
-    public function setImageDebout(string $imageDebout): self
-    {
-        $this->imageDebout = $imageDebout;
-
-        return $this;
-    }
 
     public function getImagePortrait(): ?string
     {
