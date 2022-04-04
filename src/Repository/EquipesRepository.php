@@ -65,8 +65,9 @@ class EquipesRepository extends ServiceEntityRepository
     public function findByCategory($category)
     {
         return $this->createQueryBuilder('e')
-            ->select('e','j')
-            ->join('e.joueurs','j')
+//            ->select('e','j','ec')
+//            ->join('e.categorie','ec')
+//            ->join('e.joueurs','j')
             ->Where('e.categorie = :val')
             ->setParameter('val', $category)
             ->getQuery()
